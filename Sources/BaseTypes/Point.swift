@@ -6,6 +6,8 @@
 //  Copyright © 2016 StephenKac. All rights reserved.
 //
 
+import Foundation
+
 // A Swift protocol for a point in some 2 dimensional container
 public protocol Point: Equatable {
     var x: Double { get set }
@@ -44,9 +46,9 @@ public func /<PointType: Point>(lhs: PointType, rhs: PointType) -> PointType {
     return PointType(x: lhs.x / rhs.x, y: lhs.y / rhs.y)
 }
 
-extension Point {
+public extension Point {
   func floored() -> Self {
-    let value = Self(x: floor(self.x), y: floor(self.y))
+		let value = Self.init(x: floor(self.x), y: floor(self.y))
     return value
   }
 }

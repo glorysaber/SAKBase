@@ -11,6 +11,8 @@ import SAKBase
 
 class EventTests: XCTestCase {
 
+		var eventHandler = Disposable?
+
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -30,7 +32,7 @@ class EventTests: XCTestCase {
       
       let string: NSString? = NSString("Hello")
       
-      let handler = event.addHandler(string!) {
+      eventHandler = event.addHandler(string!) {
         print($0, $1)
         return true
       }
@@ -40,7 +42,6 @@ class EventTests: XCTestCase {
 //      XCTAssert(event.raise(5))
       
       event.raise(3)
-      
     }
 
     func testPerformanceExample() {
