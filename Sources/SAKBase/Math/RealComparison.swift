@@ -101,7 +101,9 @@ extension Float64: EquivalentIntegerSize {
 	public typealias IntegerSize = Int64
 }
 
+#if os(iOS)
 @available(iOS 14.0, *)
 extension Float16: EquivalentIntegerSize {
 	public typealias IntegerSize = Int16
 }
+#endif
