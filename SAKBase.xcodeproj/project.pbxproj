@@ -3,15 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		CC90BC1224AA7CD2002CB53F /* SAKBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC90BC0924AA7CD1002CB53F /* SAKBase.framework */; };
-		CC90BC2024AA7CE2002CB53F /* Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0D223D6B3860027CD2B /* Comparison.swift */; };
+		CC90BC2024AA7CE2002CB53F /* RealComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0D223D6B3860027CD2B /* RealComparison.swift */; };
 		CC90BC2124AA7CE2002CB53F /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0D423D6B3860027CD2B /* EventTests.swift */; };
 		CC90BC2224AA7CE2002CB53F /* Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0EE23D6CB3F0027CD2B /* Concurrency.swift */; };
-		CC90BC2424AA7CE7002CB53F /* Point3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AE23D6B3550027CD2B /* Point3.swift */; };
 		CC90BC2524AA7CE7002CB53F /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B023D6B3550027CD2B /* Point.swift */; };
 		CC90BC2624AA7CE7002CB53F /* UniversalID.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AC23D6B3550027CD2B /* UniversalID.swift */; };
 		CC90BC2724AA7CE7002CB53F /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AB23D6B3550027CD2B /* Stack.swift */; };
@@ -19,7 +18,7 @@
 		CC90BC2924AA7CE7002CB53F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AD23D6B3550027CD2B /* Event.swift */; };
 		CC90BC2A24AA7CE7002CB53F /* BindingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AA23D6B3550027CD2B /* BindingCommand.swift */; };
 		CC90BC2B24AA7CEC002CB53F /* ProgressReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B223D6B3550027CD2B /* ProgressReporting.swift */; };
-		CC90BC2C24AA7CEF002CB53F /* Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B423D6B3550027CD2B /* Comparison.swift */; };
+		CC90BC2C24AA7CEF002CB53F /* RealComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B423D6B3550027CD2B /* RealComparison.swift */; };
 		CC90BC2D24AA7CF4002CB53F /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B723D6B3550027CD2B /* GroupOperation.swift */; };
 		CC90BC2E24AA7CF4002CB53F /* PThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B923D6B3550027CD2B /* PThread.swift */; };
 		CC90BC2F24AA7CF4002CB53F /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B823D6B3550027CD2B /* AsyncOperation.swift */; };
@@ -31,7 +30,9 @@
 		CCA0A4F724BE2C0F007258BA /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0A4F624BE2C0F007258BA /* StackTests.swift */; };
 		CCA0A4F924BE2C40007258BA /* BindingCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0A4F824BE2C40007258BA /* BindingCommandTests.swift */; };
 		CCA0A4FB24BE2C6B007258BA /* CommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0A4FA24BE2C6B007258BA /* CommandTests.swift */; };
-		CCCE144924AA801900022FFC /* SAKBase.h in Headers */ = {isa = PBXBuildFile; fileRef = CC90BC3824AA7D65002CB53F /* SAKBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CCA0A4FD24BE438F007258BA /* PointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0A4FC24BE438F007258BA /* PointTests.swift */; };
+		CCA0A50024BE5856007258BA /* RealModule in Frameworks */ = {isa = PBXBuildFile; productRef = CCA0A4FF24BE5856007258BA /* RealModule */; };
+		CCA0A50324BE6330007258BA /* Point3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AE23D6B3550027CD2B /* Point3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,12 +48,12 @@
 /* Begin PBXFileReference section */
 		CC90BC0924AA7CD1002CB53F /* SAKBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SAKBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC90BC1124AA7CD2002CB53F /* SAKBaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SAKBaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC90BC3824AA7D65002CB53F /* SAKBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAKBase.h; sourceTree = "<group>"; };
 		CC90BC3A24AA7D6B002CB53F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCA0A4F424BE2BE1007258BA /* UniversalIDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalIDTests.swift; sourceTree = "<group>"; };
 		CCA0A4F624BE2C0F007258BA /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 		CCA0A4F824BE2C40007258BA /* BindingCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingCommandTests.swift; sourceTree = "<group>"; };
 		CCA0A4FA24BE2C6B007258BA /* CommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandTests.swift; sourceTree = "<group>"; };
+		CCA0A4FC24BE438F007258BA /* PointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
 		CCC1C0AA23D6B3550027CD2B /* BindingCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingCommand.swift; sourceTree = "<group>"; };
 		CCC1C0AB23D6B3550027CD2B /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		CCC1C0AC23D6B3550027CD2B /* UniversalID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalID.swift; sourceTree = "<group>"; };
@@ -61,7 +62,7 @@
 		CCC1C0AF23D6B3550027CD2B /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		CCC1C0B023D6B3550027CD2B /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		CCC1C0B223D6B3550027CD2B /* ProgressReporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressReporting.swift; sourceTree = "<group>"; };
-		CCC1C0B423D6B3550027CD2B /* Comparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comparison.swift; sourceTree = "<group>"; };
+		CCC1C0B423D6B3550027CD2B /* RealComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealComparison.swift; sourceTree = "<group>"; };
 		CCC1C0B623D6B3550027CD2B /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		CCC1C0B723D6B3550027CD2B /* GroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupOperation.swift; sourceTree = "<group>"; };
 		CCC1C0B823D6B3550027CD2B /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
@@ -69,7 +70,7 @@
 		CCC1C0BB23D6B3550027CD2B /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		CCC1C0BC23D6B3550027CD2B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		CCC1C0BD23D6B3550027CD2B /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
-		CCC1C0D223D6B3860027CD2B /* Comparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comparison.swift; sourceTree = "<group>"; };
+		CCC1C0D223D6B3860027CD2B /* RealComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealComparison.swift; sourceTree = "<group>"; };
 		CCC1C0D423D6B3860027CD2B /* EventTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 		CCC1C0E323D6B45E0027CD2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCC1C0EE23D6CB3F0027CD2B /* Concurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concurrency.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCA0A50024BE5856007258BA /* RealModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +99,7 @@
 		CCA0A4F124BE2B68007258BA /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				CCC1C0D223D6B3860027CD2B /* Comparison.swift */,
+				CCC1C0D223D6B3860027CD2B /* RealComparison.swift */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -110,6 +112,7 @@
 				CCA0A4F424BE2BE1007258BA /* UniversalIDTests.swift */,
 				CCA0A4F624BE2C0F007258BA /* StackTests.swift */,
 				CCA0A4F824BE2C40007258BA /* BindingCommandTests.swift */,
+				CCA0A4FC24BE438F007258BA /* PointTests.swift */,
 			);
 			path = BaseTypes;
 			sourceTree = "<group>";
@@ -174,7 +177,7 @@
 		CCC1C0B323D6B3550027CD2B /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				CCC1C0B423D6B3550027CD2B /* Comparison.swift */,
+				CCC1C0B423D6B3550027CD2B /* RealComparison.swift */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -213,7 +216,6 @@
 		CCE7642224AA77C7002F2863 /* SAKBase */ = {
 			isa = PBXGroup;
 			children = (
-				CC90BC3824AA7D65002CB53F /* SAKBase.h */,
 				CCC1C0A923D6B3550027CD2B /* BaseTypes */,
 				CCC1C0B123D6B3550027CD2B /* NSSwift */,
 				CCC1C0B323D6B3550027CD2B /* Math */,
@@ -239,7 +241,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCCE144924AA801900022FFC /* SAKBase.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +261,9 @@
 			dependencies = (
 			);
 			name = SAKBase;
+			packageProductDependencies = (
+				CCA0A4FF24BE5856007258BA /* RealModule */,
+			);
 			productName = SAKBase;
 			productReference = CC90BC0924AA7CD1002CB53F /* SAKBase.framework */;
 			productType = "com.apple.product-type.framework";
@@ -309,6 +313,9 @@
 				Base,
 			);
 			mainGroup = CCC1C09323D6B3320027CD2B;
+			packageReferences = (
+				CCA0A4FE24BE5856007258BA /* XCRemoteSwiftPackageReference "swift-numerics" */,
+			);
 			productRefGroup = CCC1C09E23D6B3320027CD2B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -345,6 +352,7 @@
 				CC90BC2B24AA7CEC002CB53F /* ProgressReporting.swift in Sources */,
 				CC90BC2624AA7CE7002CB53F /* UniversalID.swift in Sources */,
 				CC90BC2524AA7CE7002CB53F /* Point.swift in Sources */,
+				CCA0A50324BE6330007258BA /* Point3.swift in Sources */,
 				CC90BC3124AA7CF7002CB53F /* String.swift in Sources */,
 				CC90BC2E24AA7CF4002CB53F /* PThread.swift in Sources */,
 				CC90BC3224AA7CF7002CB53F /* Array.swift in Sources */,
@@ -352,8 +360,7 @@
 				CC90BC2824AA7CE7002CB53F /* Command.swift in Sources */,
 				CC90BC3024AA7CF4002CB53F /* Lock.swift in Sources */,
 				CC90BC2924AA7CE7002CB53F /* Event.swift in Sources */,
-				CC90BC2C24AA7CEF002CB53F /* Comparison.swift in Sources */,
-				CC90BC2424AA7CE7002CB53F /* Point3.swift in Sources */,
+				CC90BC2C24AA7CEF002CB53F /* RealComparison.swift in Sources */,
 				CC90BC2F24AA7CF4002CB53F /* AsyncOperation.swift in Sources */,
 				CC90BC2D24AA7CF4002CB53F /* GroupOperation.swift in Sources */,
 				CC90BC3324AA7CF7002CB53F /* Optional.swift in Sources */,
@@ -364,10 +371,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCA0A4FD24BE438F007258BA /* PointTests.swift in Sources */,
 				CC90BC2124AA7CE2002CB53F /* EventTests.swift in Sources */,
 				CC90BC2224AA7CE2002CB53F /* Concurrency.swift in Sources */,
 				CCA0A4F524BE2BE1007258BA /* UniversalIDTests.swift in Sources */,
-				CC90BC2024AA7CE2002CB53F /* Comparison.swift in Sources */,
+				CC90BC2024AA7CE2002CB53F /* RealComparison.swift in Sources */,
 				CCA0A4F724BE2C0F007258BA /* StackTests.swift in Sources */,
 				CCA0A4F924BE2C40007258BA /* BindingCommandTests.swift in Sources */,
 				CCA0A4FB24BE2C6B007258BA /* CommandTests.swift in Sources */,
@@ -451,7 +459,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3S44ULQD4;
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,6 +470,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.3;
 			};
 			name = Debug;
 		};
@@ -472,7 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N3S44ULQD4;
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,6 +492,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 13.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -643,6 +653,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CCA0A4FE24BE5856007258BA /* XCRemoteSwiftPackageReference "swift-numerics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:apple/swift-numerics.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CCA0A4FF24BE5856007258BA /* RealModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCA0A4FE24BE5856007258BA /* XCRemoteSwiftPackageReference "swift-numerics" */;
+			productName = RealModule;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CCC1C09423D6B3320027CD2B /* Project object */;
 }

@@ -5,46 +5,73 @@
 //  Created by Stephen Kac on 12/29/16.
 //  Copyright © 2016 StephenKac. All rights reserved.
 //
-import GameKit
+import RealModule
+import Foundation
 
+/// A Swift protocol for a point in some 2 dimensional container
 public protocol Point3: Equatable {
-  var x: Double { get set }
-  var y: Double { get set }
-  var z: Double { get set }
-  
-  init(x: Double, y: Double, z: Double)
-  
-  init(x: Int, y: Int, z: Int)
-  
-  init(x: Float, y: Float, z: Float)
+	associatedtype PointValue: Real
+
+	var xCord: PointValue { get set}
+	var yCord: PointValue { get set}
+	var zCord: PointValue { get set}
+
+	init(xCord: PointValue, yCord: PointValue, zCord: PointValue)
 }
 
-extension Point3 {
-  static func +=(left: inout Self, right: Self) {
-    left = left + right
-  }
+public extension Point3 {
+	init(xCord: Int, yCord: Int, zCord: Int) {
+		self.init(xCord: PointValue(xCord), yCord: PointValue(yCord), zCord: PointValue(zCord))
+	}
 }
 
-public func ==<Point3Type: Point3>(lhs: Point3Type, rhs: Point3Type) -> Bool {
-  return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
+public extension Point3 {
+	static func +=(left: inout Self, right: Self) {
+		left = left + right
+	}
 }
 
-public func +<Point3Type: Point3>(lhs: Point3Type, rhs: Point3Type) -> Point3Type {
-  return Point3Type.init(x: lhs.x + rhs.x, y: lhs.y + rhs.y, z: lhs.z + rhs.z)
+public extension Point3 {
+	/// Returns wether or not the value is within the given episolon of the other value
+	/// - Parameters:
+	///   - epsilon: The max allowed difference between two values
+	///   - point: The value to compare against
+	/// - Returns: True if within epsilon of point, false otherwise.
+	func within(_ epsilon: Self, of point: Self) -> Bool {
+		xCord.within(epsilon.xCord, of: point.xCord) &&
+			yCord.within(epsilon.yCord, of: point.yCord) &&
+			zCord.within(epsilon.zCord, of: point.zCord)
+	}
+
+	/// Returns wether or not the value is within the given episolon of the other value
+	/// - Parameters:
+	///   - epsilon: The max allowed difference between two values
+	///   - point: The value to compare against
+	/// - Returns: True if within epsilon of point, false otherwise.
+	func cordsWithin(_ epsilon: Self.PointValue, of point: Self) -> Bool {
+		return within(Self.init(xCord: epsilon, yCord: epsilon, zCord: epsilon),
+									of: point)
+	}
 }
 
-public func -<Point3Type: Point3>(lhs: Point3Type, rhs: Point3Type) -> Point3Type {
-  return Point3Type.init(x: lhs.x - rhs.x, y: lhs.y - rhs.y, z: lhs.z - rhs.z)
+public func +<PointType: Point3>(lhs: PointType, rhs: PointType) -> PointType {
+	PointType(xCord: lhs.xCord + rhs.xCord, yCord: lhs.yCord + rhs.yCord, zCord: lhs.zCord + rhs.zCord)
 }
 
-public func *<Point3Type: Point3>(lhs: Point3Type, rhs: Point3Type) -> Point3Type {
-  return Point3Type.init(x: lhs.x * rhs.x, y: lhs.y * rhs.y, z: lhs.z * rhs.z)
+public func -<PointType: Point3>(lhs: PointType, rhs: PointType) -> PointType {
+	PointType(xCord: lhs.xCord - rhs.xCord, yCord: lhs.yCord - rhs.yCord, zCord: lhs.zCord - rhs.zCord)
 }
 
-public func /<Point3Type: Point3>(lhs: Point3Type, rhs: Point3Type) -> Point3Type {
-  return Point3Type.init(x: lhs.x / rhs.x, y: lhs.y / rhs.y, z: lhs.z / rhs.z)
+public func *<PointType: Point3>(lhs: PointType, rhs: PointType) -> PointType {
+	PointType(xCord: lhs.xCord * rhs.xCord, yCord: lhs.yCord * rhs.yCord, zCord: lhs.zCord * rhs.zCord)
 }
 
-public func floor<Point3Type: Point3>(Point3: Point3Type) -> Point3Type {
-  return Point3Type.init(x: floor(Point3.x), y: floor(Point3.x), z: floor(Point3.z))
+public func /<PointType: Point3>(lhs: PointType, rhs: PointType) -> PointType {
+	PointType(xCord: lhs.xCord / rhs.xCord, yCord: lhs.yCord / rhs.yCord, zCord: lhs.yCord / rhs.yCord)
+}
+
+public extension Point3 {
+	func floored() -> Self {
+		Self.init(xCord: floor(xCord), yCord: floor(yCord), zCord: floor(zCord))
+	}
 }
