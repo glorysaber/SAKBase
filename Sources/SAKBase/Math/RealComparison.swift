@@ -28,10 +28,6 @@ public extension Real {
 			return true
 		}
 
-		guard self.sign == realNumber.sign else {
-			return false
-		}
-
 		guard (self.isInfinite || realNumber.isInfinite) == false else {
 			return false
 		}
@@ -59,6 +55,7 @@ public extension EquivalentIntegerSize where Self: BinaryFloatingPoint {
 	///   - realNumber: The value to compare against
 	/// - Returns: True if within epsilon of realNumber, false otherwise.
 	func within(ulps: UInt, of realNumber: Self) -> Bool {
+		precondition(ulps != IntegerSize.max)
 
 		let withinUlps = self.distanceInUlps(to: realNumber)
 

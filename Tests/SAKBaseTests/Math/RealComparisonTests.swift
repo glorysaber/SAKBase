@@ -1,5 +1,5 @@
 //
-//  MathTests.swift
+//  RealComparisonTests.swift
 //  SAKBase
 //
 //  Created by Stephen Kac on 2/27/18.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import SAKBase
 
-class MathTests: XCTestCase {
+class RealComparisonTests: XCTestCase {
 
   
   // MARK: Comparison Tests
@@ -18,7 +18,7 @@ class MathTests: XCTestCase {
     
 		XCTAssertTrue(1.0.within(2.0, of: 0.1))
 
-    // Must  treat Infinity as always equal
+    // Must treat Infinity as always equal
 		XCTAssertTrue(Double.greatestFiniteMagnitude.within(.infinity, of: .leastNonzeroMagnitude))
 
     // Must treet nan epislon as never equal
@@ -30,6 +30,12 @@ class MathTests: XCTestCase {
     // Can handle small and big values
 		XCTAssertTrue(Double.greatestFiniteMagnitude.within(1, of: Double.greatestFiniteMagnitude))
 		XCTAssertTrue(Double.leastNonzeroMagnitude.within(Double.leastNonzeroMagnitude.nextUp, of: Double.zero))
+
+		// Can handle differently signed values
+		XCTAssertTrue(Double.zero.nextDown.within(0.1, of: Double.zero))
+		XCTAssertTrue(Double.zero.nextDown.within(0.1, of: Double.zero.nextUp))
+
+		XCTAssertFalse(Double.infinity.within(Double.greatestFiniteMagnitude, of: 0.0))
   }
 
 	func testUlps() {
@@ -40,5 +46,14 @@ class MathTests: XCTestCase {
 
 		XCTAssertTrue(1.0.within(ulps: 2, of: 1.0.nextUp.nextUp))
 		XCTAssertTrue(1.0.within(ulps: 2, of: 1.0.nextDown))
+
+		XCTAssertFalse(Double.nan.within(ulps: 2, of: 1.0.nextUp.nextUp))
+		XCTAssertFalse(Double.infinity.within(ulps: 2, of: 1.0.nextDown))
+		XCTAssertTrue(Double.zero.within(ulps: 0, of: Double.zero))
+
+		XCTAssertTrue(Double.zero.within(ulps: 1, of: -Double.zero))
+
+		// Differently signed values are always false no matter what
+		XCTAssertFalse((-Double.zero.nextUp).within(ulps: UInt(Int.max) - 1, of: Double.zero.nextUp))
 	}
 }
