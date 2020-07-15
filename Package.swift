@@ -17,6 +17,7 @@ let package = Package(
 			targets: ["SAKBase"]),
 	],
 	dependencies: [
+		.package(url: "git@github.com:apple/swift-numerics.git", from: "0.0.6")
 		// Dependencies declare other packages that this package depends on.
 		// .package(url: /* package url */, from: "1.0.0"),
 	],
@@ -25,7 +26,7 @@ let package = Package(
 		// Targets can depend on other targets in this package, and on products in packages which this package depends on.
 		.target(
 			name: "SAKBase",
-			dependencies: []),
+			dependencies: [.product(name: "RealModule", package: "swift-numerics")]),
 		.testTarget(
 			name: "SAKBaseTests",
 			dependencies: ["SAKBase"]),

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import SAKBase
+import SAKBase
 
 class RealComparisonTests: XCTestCase {
 
@@ -49,9 +49,9 @@ class RealComparisonTests: XCTestCase {
 
 		XCTAssertFalse(Double.nan.within(ulps: 2, of: 1.0.nextUp.nextUp))
 		XCTAssertFalse(Double.infinity.within(ulps: 2, of: 1.0.nextDown))
-		XCTAssertTrue(Double.zero.within(ulps: 0, of: Double.zero))
+		XCTAssertTrue(Double.zero.within(ulps: 0, of: .zero))
 
-		XCTAssertTrue(Double.zero.within(ulps: 1, of: -Double.zero))
+		XCTAssertTrue(Double.zero.within(ulps: 1, of: -.zero))
 
 		// Differently signed values are always false no matter what
 		XCTAssertFalse((-Double.zero.nextUp).within(ulps: UInt(Int.max) - 1, of: Double.zero.nextUp))
