@@ -11,11 +11,11 @@ import Foundation
 /// A Swift protocol for a point in some 2 dimensional container
 public protocol Point3: Equatable {
 	associatedtype PointValue: Real
-
+	
 	var xCord: PointValue { get set}
 	var yCord: PointValue { get set}
 	var zCord: PointValue { get set}
-
+	
 	init(xCord: PointValue, yCord: PointValue, zCord: PointValue)
 }
 
@@ -42,7 +42,7 @@ public extension Point3 {
 			yCord.within(epsilon.yCord, of: point.yCord) &&
 			zCord.within(epsilon.zCord, of: point.zCord)
 	}
-
+	
 	/// Returns wether or not the value is within the given episolon of the other value
 	/// - Parameters:
 	///   - epsilon: The max allowed difference between two values

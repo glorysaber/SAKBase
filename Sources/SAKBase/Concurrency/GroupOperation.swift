@@ -10,10 +10,10 @@ import Foundation
 
 //
 public class GroupOperation: AsyncOperation {
-  let queue = OperationQueue()
-  public var operations: [AsyncOperation] = []
-  
-  public override func execute() {
-    queue.addOperations(operations, waitUntilFinished: true)
-  }
+	let queue = OperationQueue()
+	public var operations: [AsyncOperation] = []
+	
+	public override func execute() {
+		queue.addOperations(operations, waitUntilFinished: true)
+	}
 }

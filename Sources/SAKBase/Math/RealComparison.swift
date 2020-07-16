@@ -12,32 +12,32 @@ import RealModule
 
 
 public extension Real {
-
+	
 	/// Returns wether or not the value is within the given episolon of the other value
 	/// - Parameters:
 	///   - epsilon: The max allowed difference between two values
 	///   - realNumber: The value to compare against
 	/// - Returns: True if within epsilon of realNumber, false otherwise.
 	func within(_ epsilon: Self, of realNumber: Self) -> Bool {
-
+		
 		guard (self.isNaN || realNumber.isNaN || epsilon.isNaN) == false  else {
 			return false
 		}
-
+		
 		guard self != realNumber else {
 			return true
 		}
-
+		
 		guard (self.isInfinite || realNumber.isInfinite) == false else {
 			return false
 		}
-
+		
 		guard epsilon.isInfinite == false else {
 			return true
 		}
-
+		
 		let range = (realNumber - epsilon)...(realNumber + epsilon)
-
+		
 		return range.contains(self)
 	}
 }
@@ -47,7 +47,7 @@ public protocol EquivalentIntegerSize {
 }
 
 public extension EquivalentIntegerSize where Self: BinaryFloatingPoint {
-
+	
 	/// Returns wether or not the value is within the given ulps epsilon of the other value
 	/// - Warning: Ulps is not a good way to compare small numbers. 0.1 and 0 has 1000's of ulps of difference
 	/// - Parameters:
@@ -56,13 +56,13 @@ public extension EquivalentIntegerSize where Self: BinaryFloatingPoint {
 	/// - Returns: True if within epsilon of realNumber, false otherwise.
 	func within(ulps: UInt, of realNumber: Self) -> Bool {
 		precondition(ulps != IntegerSize.max)
-
+		
 		let withinUlps = self.distanceInUlps(to: realNumber)
-
+		
 		return withinUlps <= ulps
 	}
-
-
+	
+	
 	/// Gets the distance between floating points in ulps.
 	/// - Warning: Ulps is not a good way to compare small numbers. 0.1 and 0 has 1000's of ulps of difference
 	/// - Parameter realNumber: The number to compare with
@@ -71,22 +71,22 @@ public extension EquivalentIntegerSize where Self: BinaryFloatingPoint {
 		guard (self.isNaN || realNumber.isNaN) == false else {
 			return IntegerSize.max
 		}
-
+		
 		guard self != realNumber else {
 			return 0
 		}
-
+		
 		guard (self.isInfinite || realNumber.isInfinite) == false else {
 			return IntegerSize.max
 		}
-
+		
 		guard self.sign == realNumber.sign else {
 			return IntegerSize.max
 		}
-
+		
 		let bitcastedFloat = unsafeBitCast(self, to: IntegerSize.self)
 		let bitcastedFloatCompared = unsafeBitCast(realNumber, to: IntegerSize.self)
-
+		
 		return abs(bitcastedFloat - bitcastedFloatCompared)
 	}
 }

@@ -1,5 +1,5 @@
 //
-//  ptional.swift
+//  Optional.swift
 //  SAKBase
 //
 //  Created by Stephen Kac on 1/18/20.
@@ -17,6 +17,6 @@ infix operator !!: CastingPrecedence
 ///   - wrapped: The optional to unwrap
 ///   - failureText: The text to include when an optional fails to be unwrapped
 public func !! <T>(wrapped: T?, failureText: @autoclosure () -> String) -> T {
-  if let x = wrapped {return x}
-  fatalError(failureText())
+	if let x = wrapped {return x}
+	fatalError(failureText())
 }
