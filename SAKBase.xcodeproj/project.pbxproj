@@ -11,6 +11,12 @@
 		CC1F5E4324BFD2640062B978 /* DisposableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F5E4124BFD25D0062B978 /* DisposableTests.swift */; };
 		CC1F5E4524C0379B0062B978 /* Point3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F5E4424C0379B0062B978 /* Point3.swift */; };
 		CC1F5E4824C0B7FB0062B978 /* Point3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F5E4624C039F50062B978 /* Point3Tests.swift */; };
+		CC1F5E4C24C0D2800062B978 /* Weakify.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F5E4B24C0D2800062B978 /* Weakify.swift */; };
+		CC2EC25824C0F0E1005FA6E8 /* WeakifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2EC25724C0F0E1005FA6E8 /* WeakifyTests.swift */; };
+		CC2EC25B24C0FA46005FA6E8 /* Strongify.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2EC25A24C0FA46005FA6E8 /* Strongify.swift */; };
+		CC2EC25D24C10134005FA6E8 /* UnsafeWeakify.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2EC25C24C10134005FA6E8 /* UnsafeWeakify.swift */; };
+		CC2EC25F24C1025B005FA6E8 /* StongifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2EC25E24C1025B005FA6E8 /* StongifyTests.swift */; };
+		CC2EC26124C10341005FA6E8 /* UnsafeWeakifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2EC26024C10341005FA6E8 /* UnsafeWeakifyTests.swift */; };
 		CC90BC1224AA7CD2002CB53F /* SAKBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC90BC0924AA7CD1002CB53F /* SAKBase.framework */; };
 		CC90BC2024AA7CE2002CB53F /* RealComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0D223D6B3860027CD2B /* RealComparisonTests.swift */; };
 		CC90BC2124AA7CE2002CB53F /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0D423D6B3860027CD2B /* EventTests.swift */; };
@@ -51,6 +57,12 @@
 		CC1F5E4124BFD25D0062B978 /* DisposableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableTests.swift; sourceTree = "<group>"; };
 		CC1F5E4424C0379B0062B978 /* Point3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point3.swift; sourceTree = "<group>"; };
 		CC1F5E4624C039F50062B978 /* Point3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point3Tests.swift; sourceTree = "<group>"; };
+		CC1F5E4B24C0D2800062B978 /* Weakify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weakify.swift; sourceTree = "<group>"; };
+		CC2EC25724C0F0E1005FA6E8 /* WeakifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakifyTests.swift; sourceTree = "<group>"; };
+		CC2EC25A24C0FA46005FA6E8 /* Strongify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strongify.swift; sourceTree = "<group>"; };
+		CC2EC25C24C10134005FA6E8 /* UnsafeWeakify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeWeakify.swift; sourceTree = "<group>"; };
+		CC2EC25E24C1025B005FA6E8 /* StongifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StongifyTests.swift; sourceTree = "<group>"; };
+		CC2EC26024C10341005FA6E8 /* UnsafeWeakifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeWeakifyTests.swift; sourceTree = "<group>"; };
 		CC90BC0924AA7CD1002CB53F /* SAKBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SAKBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC90BC1124AA7CD2002CB53F /* SAKBaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SAKBaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC90BC3A24AA7D6B002CB53F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +110,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC1F5E4A24C0D1BB0062B978 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				CC1F5E4B24C0D2800062B978 /* Weakify.swift */,
+				CC2EC25A24C0FA46005FA6E8 /* Strongify.swift */,
+				CC2EC25C24C10134005FA6E8 /* UnsafeWeakify.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		CC2EC25924C0F0E6005FA6E8 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				CC2EC25724C0F0E1005FA6E8 /* WeakifyTests.swift */,
+				CC2EC25E24C1025B005FA6E8 /* StongifyTests.swift */,
+				CC2EC26024C10341005FA6E8 /* UnsafeWeakifyTests.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
 		CCA0A4F124BE2B68007258BA /* Math */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +241,7 @@
 		CCC1C0D123D6B3860027CD2B /* SAKBaseTests */ = {
 			isa = PBXGroup;
 			children = (
+				CC2EC25924C0F0E6005FA6E8 /* Adapters */,
 				CCA0A4F124BE2B68007258BA /* Math */,
 				CCA0A4F224BE2B9A007258BA /* BaseTypes */,
 				CCA0A4F324BE2BA5007258BA /* Concurrency */,
@@ -219,6 +252,7 @@
 		CCE7642224AA77C7002F2863 /* SAKBase */ = {
 			isa = PBXGroup;
 			children = (
+				CC1F5E4A24C0D1BB0062B978 /* Adapters */,
 				CCC1C0A923D6B3550027CD2B /* BaseTypes */,
 				CCC1C0B123D6B3550027CD2B /* NSSwift */,
 				CCC1C0B323D6B3550027CD2B /* Math */,
@@ -374,9 +408,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC90BC2724AA7CE7002CB53F /* Stack.swift in Sources */,
+				CC1F5E4C24C0D2800062B978 /* Weakify.swift in Sources */,
 				CC1F5E4024BFBDD60062B978 /* Disposable.swift in Sources */,
 				CC90BC2B24AA7CEC002CB53F /* ProgressReporting.swift in Sources */,
+				CC2EC25D24C10134005FA6E8 /* UnsafeWeakify.swift in Sources */,
 				CC90BC2524AA7CE7002CB53F /* Point.swift in Sources */,
+				CC2EC25B24C0FA46005FA6E8 /* Strongify.swift in Sources */,
 				CC1F5E4524C0379B0062B978 /* Point3.swift in Sources */,
 				CC90BC3124AA7CF7002CB53F /* String.swift in Sources */,
 				CC90BC2E24AA7CF4002CB53F /* PThread.swift in Sources */,
@@ -396,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC2EC25F24C1025B005FA6E8 /* StongifyTests.swift in Sources */,
 				CCA0A4FD24BE438F007258BA /* PointTests.swift in Sources */,
 				CC1F5E4324BFD2640062B978 /* DisposableTests.swift in Sources */,
 				CC90BC2124AA7CE2002CB53F /* EventTests.swift in Sources */,
@@ -403,7 +441,9 @@
 				CC90BC2024AA7CE2002CB53F /* RealComparisonTests.swift in Sources */,
 				CCA0A4F724BE2C0F007258BA /* StackTests.swift in Sources */,
 				CCA0A4F924BE2C40007258BA /* BindingCommandTests.swift in Sources */,
+				CC2EC26124C10341005FA6E8 /* UnsafeWeakifyTests.swift in Sources */,
 				CC1F5E4824C0B7FB0062B978 /* Point3Tests.swift in Sources */,
+				CC2EC25824C0F0E1005FA6E8 /* WeakifyTests.swift in Sources */,
 				CCA0A4FB24BE2C6B007258BA /* CommandTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
