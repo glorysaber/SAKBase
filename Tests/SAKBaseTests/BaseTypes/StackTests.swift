@@ -39,10 +39,12 @@ class StackTests: XCTestCase {
 		}
 
 		var stackCount = stack.count
-		for element in stack {
+		stack.forEachPop { element in
 			XCTAssertEqual(values[stackCount - 1], element)
 			stackCount -= 1
 		}
+
+		XCTAssertEqual(stack.count, 0)
 	}
 
 }

@@ -3,8 +3,8 @@
 
   Push and pop are O(1) operations.
 */
-public struct Stack<T> {
-  fileprivate var array = [T]()
+public struct Stack<Element> {
+  fileprivate var array = [Element]()
 
 	public init(){}
 
@@ -16,24 +16,21 @@ public struct Stack<T> {
     return array.count
   }
 
-  public mutating func push(_ element: T) {
+  public mutating func push(_ element: Element) {
     array.append(element)
   }
 
-  public mutating func pop() -> T? {
+  public mutating func pop() -> Element? {
     return array.popLast()
   }
 
-  public var top: T? {
+  public var top: Element? {
     return array.last
   }
-}
 
-extension Stack: Sequence {
-    public func makeIterator() -> AnyIterator<T> {
-        var curr = self
-        return AnyIterator {
-            return curr.pop()
-        }
-    }
+	public mutating func forEachPop(_ body: (Element) throws -> Void) rethrows {
+		while let element = pop() {
+			try body(element)
+		}
+	}
 }
