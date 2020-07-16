@@ -42,11 +42,11 @@ public extension Real {
 	}
 }
 
-public protocol EquivalentIntegerSize {
+public protocol EquivalentIntegerSize: BinaryFloatingPoint {
 	associatedtype IntegerSize: SignedNumeric & FixedWidthInteger
 }
 
-public extension EquivalentIntegerSize where Self: BinaryFloatingPoint {
+public extension EquivalentIntegerSize {
 	
 	/// Returns wether or not the value is within the given ulps epsilon of the other value
 	/// - Warning: Ulps is not a good way to compare small numbers. 0.1 and 0 has 1000's of ulps of difference
@@ -54,7 +54,7 @@ public extension EquivalentIntegerSize where Self: BinaryFloatingPoint {
 	///   - ulps: The max allowed difference in ulps between two values
 	///   - realNumber: The value to compare against
 	/// - Returns: True if within epsilon of realNumber, false otherwise.
-	func within(ulps: UInt, of realNumber: Self) -> Bool {
+	func within<Integer: BinaryInteger>(ulps: Integer, of realNumber: Self) -> Bool {
 		precondition(ulps != IntegerSize.max)
 		
 		let withinUlps = self.distanceInUlps(to: realNumber)
