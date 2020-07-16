@@ -29,4 +29,20 @@ class StackTests: XCTestCase {
 		XCTAssert(stack.top == 1)
 	}
 
+	func test_stack_iteratesOverAll() {
+		var stack = Stack<Int>()
+
+		let values = (0...5).map { $0 }
+
+		for index in 0...5 {
+			stack.push(values[index])
+		}
+
+		var stackCount = stack.count
+		for element in stack {
+			XCTAssertEqual(values[stackCount - 1], element)
+			stackCount -= 1
+		}
+	}
+
 }
