@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC1F5E4024BFBDD60062B978 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F5E3F24BFBDD60062B978 /* Disposable.swift */; };
+		CC1F5E4324BFD2640062B978 /* DisposableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F5E4124BFD25D0062B978 /* DisposableTests.swift */; };
 		CC90BC1224AA7CD2002CB53F /* SAKBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC90BC0924AA7CD1002CB53F /* SAKBase.framework */; };
 		CC90BC2024AA7CE2002CB53F /* RealComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0D223D6B3860027CD2B /* RealComparisonTests.swift */; };
 		CC90BC2124AA7CE2002CB53F /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0D423D6B3860027CD2B /* EventTests.swift */; };
 		CC90BC2224AA7CE2002CB53F /* Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0EE23D6CB3F0027CD2B /* Concurrency.swift */; };
 		CC90BC2524AA7CE7002CB53F /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B023D6B3550027CD2B /* Point.swift */; };
-		CC90BC2624AA7CE7002CB53F /* UniversalID.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AC23D6B3550027CD2B /* UniversalID.swift */; };
 		CC90BC2724AA7CE7002CB53F /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AB23D6B3550027CD2B /* Stack.swift */; };
 		CC90BC2824AA7CE7002CB53F /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AF23D6B3550027CD2B /* Command.swift */; };
 		CC90BC2924AA7CE7002CB53F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AD23D6B3550027CD2B /* Event.swift */; };
@@ -26,7 +27,6 @@
 		CC90BC3124AA7CF7002CB53F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0BC23D6B3550027CD2B /* String.swift */; };
 		CC90BC3224AA7CF7002CB53F /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0BB23D6B3550027CD2B /* Array.swift */; };
 		CC90BC3324AA7CF7002CB53F /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0BD23D6B3550027CD2B /* Optional.swift */; };
-		CCA0A4F524BE2BE1007258BA /* UniversalIDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0A4F424BE2BE1007258BA /* UniversalIDTests.swift */; };
 		CCA0A4F724BE2C0F007258BA /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0A4F624BE2C0F007258BA /* StackTests.swift */; };
 		CCA0A4F924BE2C40007258BA /* BindingCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0A4F824BE2C40007258BA /* BindingCommandTests.swift */; };
 		CCA0A4FB24BE2C6B007258BA /* CommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0A4FA24BE2C6B007258BA /* CommandTests.swift */; };
@@ -46,10 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC1F5E3F24BFBDD60062B978 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
+		CC1F5E4124BFD25D0062B978 /* DisposableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableTests.swift; sourceTree = "<group>"; };
 		CC90BC0924AA7CD1002CB53F /* SAKBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SAKBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC90BC1124AA7CD2002CB53F /* SAKBaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SAKBaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC90BC3A24AA7D6B002CB53F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CCA0A4F424BE2BE1007258BA /* UniversalIDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalIDTests.swift; sourceTree = "<group>"; };
 		CCA0A4F624BE2C0F007258BA /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 		CCA0A4F824BE2C40007258BA /* BindingCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingCommandTests.swift; sourceTree = "<group>"; };
 		CCA0A4FA24BE2C6B007258BA /* CommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandTests.swift; sourceTree = "<group>"; };
@@ -108,8 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				CCC1C0D423D6B3860027CD2B /* EventTests.swift */,
+				CC1F5E4124BFD25D0062B978 /* DisposableTests.swift */,
 				CCA0A4FA24BE2C6B007258BA /* CommandTests.swift */,
-				CCA0A4F424BE2BE1007258BA /* UniversalIDTests.swift */,
 				CCA0A4F624BE2C0F007258BA /* StackTests.swift */,
 				CCA0A4F824BE2C40007258BA /* BindingCommandTests.swift */,
 				CCA0A4FC24BE438F007258BA /* PointTests.swift */,
@@ -162,6 +163,7 @@
 				CCC1C0AE23D6B3550027CD2B /* Point3.swift */,
 				CCC1C0AF23D6B3550027CD2B /* Command.swift */,
 				CCC1C0B023D6B3550027CD2B /* Point.swift */,
+				CC1F5E3F24BFBDD60062B978 /* Disposable.swift */,
 			);
 			path = BaseTypes;
 			sourceTree = "<group>";
@@ -349,8 +351,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC90BC2724AA7CE7002CB53F /* Stack.swift in Sources */,
+				CC1F5E4024BFBDD60062B978 /* Disposable.swift in Sources */,
 				CC90BC2B24AA7CEC002CB53F /* ProgressReporting.swift in Sources */,
-				CC90BC2624AA7CE7002CB53F /* UniversalID.swift in Sources */,
 				CC90BC2524AA7CE7002CB53F /* Point.swift in Sources */,
 				CCA0A50324BE6330007258BA /* Point3.swift in Sources */,
 				CC90BC3124AA7CF7002CB53F /* String.swift in Sources */,
@@ -372,9 +374,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCA0A4FD24BE438F007258BA /* PointTests.swift in Sources */,
+				CC1F5E4324BFD2640062B978 /* DisposableTests.swift in Sources */,
 				CC90BC2124AA7CE2002CB53F /* EventTests.swift in Sources */,
 				CC90BC2224AA7CE2002CB53F /* Concurrency.swift in Sources */,
-				CCA0A4F524BE2BE1007258BA /* UniversalIDTests.swift in Sources */,
 				CC90BC2024AA7CE2002CB53F /* RealComparisonTests.swift in Sources */,
 				CCA0A4F724BE2C0F007258BA /* StackTests.swift in Sources */,
 				CCA0A4F924BE2C40007258BA /* BindingCommandTests.swift in Sources */,
@@ -412,6 +414,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Stephen-Kac.SAKBase";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -441,6 +444,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Stephen-Kac.SAKBase";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -465,6 +469,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Stephen-Kac.SAKBaseTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -487,6 +492,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Stephen-Kac.SAKBaseTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
