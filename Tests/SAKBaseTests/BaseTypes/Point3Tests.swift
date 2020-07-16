@@ -45,7 +45,8 @@ class Point3Tests: XCTestCase {
 		let pointDiv = pointVar / Point3DoubleTest(xCord: 2, yCord: 2, zCord: 2)
 		XCTAssertTrue(pointDiv.cordsWithin(0.0000001, of: point1))
 
-		XCTAssertEqual(Point3DoubleTest(xCord: 3.0, yCord: 4.0, zCord: 3.0), Point3DoubleTest(xCord: 3.2, yCord: 4.3, zCord: 3.4).floored())
+		XCTAssertEqual(Point3DoubleTest(xCord: 3.0, yCord: 4.0, zCord: 3.0),
+									 Point3DoubleTest(xCord: 3.2, yCord: 4.3, zCord: 3.4).floored())
 	}
 
 	func test_pointsInt_equality() {

@@ -11,28 +11,31 @@ import SAKBase
 
 class StackTests: XCTestCase {
 
-	func testStack() {
+	func test_stack() {
 		var stack = Stack<Int>()
 
-		XCTAssert(stack.count == 0)
-		XCTAssert(stack.isEmpty)
-		XCTAssert(stack.pop() == nil)
-		XCTAssert(stack.top == nil)
+		XCTAssertTrue(stack.isEmpty)
+		XCTAssertNil(stack.pop())
+		XCTAssertNil(stack.top)
 
 		stack.push(1)
 		stack.push(3)
 
-		XCTAssert(stack.count == 2)
-		XCTAssert(!stack.isEmpty)
-		XCTAssert(stack.top == 3)
-		XCTAssert(stack.pop() == 3)
-		XCTAssert(stack.top == 1)
+		XCTAssertEqual(stack.count, 2)
+		XCTAssertFalse(stack.isEmpty)
+		XCTAssertEqual(stack.top, 3)
+		XCTAssertEqual(stack.pop(), 3)
+		XCTAssertEqual(stack.top, 1)
+
+		XCTAssertTrue(stack.isEmpty)
+		XCTAssertNil(stack.pop())
+		XCTAssertNil(stack.top)
 	}
 
 	func test_stack_iteratesOverAll() {
 		var stack = Stack<Int>()
 
-		let values = (0...5).map { $0 }
+		let values = Array(0...5)
 
 		for index in 0...5 {
 			stack.push(values[index])

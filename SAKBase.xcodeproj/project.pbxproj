@@ -21,7 +21,7 @@
 		CC90BC2924AA7CE7002CB53F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AD23D6B3550027CD2B /* Event.swift */; };
 		CC90BC2A24AA7CE7002CB53F /* BindingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0AA23D6B3550027CD2B /* BindingCommand.swift */; };
 		CC90BC2B24AA7CEC002CB53F /* ProgressReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B223D6B3550027CD2B /* ProgressReporting.swift */; };
-		CC90BC2C24AA7CEF002CB53F /* RealComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B423D6B3550027CD2B /* RealComparison.swift */; };
+		CC90BC2C24AA7CEF002CB53F /* Real+Comparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B423D6B3550027CD2B /* Real+Comparison.swift */; };
 		CC90BC2D24AA7CF4002CB53F /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B723D6B3550027CD2B /* GroupOperation.swift */; };
 		CC90BC2E24AA7CF4002CB53F /* PThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B923D6B3550027CD2B /* PThread.swift */; };
 		CC90BC2F24AA7CF4002CB53F /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC1C0B823D6B3550027CD2B /* AsyncOperation.swift */; };
@@ -64,7 +64,7 @@
 		CCC1C0AF23D6B3550027CD2B /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		CCC1C0B023D6B3550027CD2B /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		CCC1C0B223D6B3550027CD2B /* ProgressReporting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressReporting.swift; sourceTree = "<group>"; };
-		CCC1C0B423D6B3550027CD2B /* RealComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealComparison.swift; sourceTree = "<group>"; };
+		CCC1C0B423D6B3550027CD2B /* Real+Comparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Real+Comparison.swift"; sourceTree = "<group>"; };
 		CCC1C0B623D6B3550027CD2B /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		CCC1C0B723D6B3550027CD2B /* GroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupOperation.swift; sourceTree = "<group>"; };
 		CCC1C0B823D6B3550027CD2B /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		CCC1C0B323D6B3550027CD2B /* Math */ = {
 			isa = PBXGroup;
 			children = (
-				CCC1C0B423D6B3550027CD2B /* RealComparison.swift */,
+				CCC1C0B423D6B3550027CD2B /* Real+Comparison.swift */,
 			);
 			path = Math;
 			sourceTree = "<group>";
@@ -256,6 +256,7 @@
 			buildPhases = (
 				CC90BC0424AA7CD1002CB53F /* Headers */,
 				CC90BC0524AA7CD1002CB53F /* Sources */,
+				CC1F5E4924C0B90B0062B978 /* Swift-Lint */,
 				CC90BC0624AA7CD1002CB53F /* Frameworks */,
 				CC90BC0724AA7CD1002CB53F /* Resources */,
 			);
@@ -346,6 +347,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CC1F5E4924C0B90B0062B978 /* Swift-Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift-Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC90BC0524AA7CD1002CB53F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -363,7 +385,7 @@
 				CC90BC2824AA7CE7002CB53F /* Command.swift in Sources */,
 				CC90BC3024AA7CF4002CB53F /* Lock.swift in Sources */,
 				CC90BC2924AA7CE7002CB53F /* Event.swift in Sources */,
-				CC90BC2C24AA7CEF002CB53F /* RealComparison.swift in Sources */,
+				CC90BC2C24AA7CEF002CB53F /* Real+Comparison.swift in Sources */,
 				CC90BC2F24AA7CF4002CB53F /* AsyncOperation.swift in Sources */,
 				CC90BC2D24AA7CF4002CB53F /* GroupOperation.swift in Sources */,
 				CC90BC3324AA7CF7002CB53F /* Optional.swift in Sources */,

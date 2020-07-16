@@ -11,14 +11,14 @@ import SAKBase
 
 class EventTests: XCTestCase {
 
-	weak var eventHandler: Disposable? = nil
+	weak var eventHandler: Disposable?
 
 	func test_event_doesGetDisposed() {
 
 		let event = Event<Int>()
 
 		do {
-			let eventHandler = event.addHandler() { _ in }
+			let eventHandler = event.addHandler { _ in }
 			XCTAssertEqual(event.handlerCount, 1)
 			self.eventHandler = eventHandler
 		}
@@ -31,7 +31,7 @@ class EventTests: XCTestCase {
 
 		let event = Event<Int>()
 
-		var disposables = Array<Disposable>()
+		var disposables = [Disposable]()
 
 		var calls = 0
 

@@ -12,8 +12,8 @@ import Foundation
 public class GroupOperation: AsyncOperation {
 	let queue = OperationQueue()
 	public var operations: [AsyncOperation] = []
-	
-	public override func execute() {
+
+	override public func execute() {
 		queue.addOperations(operations, waitUntilFinished: true)
 	}
 }

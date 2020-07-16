@@ -55,7 +55,7 @@ public struct PThread {
 		public func unlock() {
 			pthread_mutex_unlock(&theLock)
 		}
-		
+
 		deinit {
 			pthread_mutex_destroy(&theLock)
 		}

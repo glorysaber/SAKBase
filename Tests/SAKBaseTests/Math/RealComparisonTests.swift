@@ -10,12 +10,11 @@ import SAKBase
 
 class RealComparisonTests: XCTestCase {
 
-  
   // MARK: Comparison Tests
   func testNearEqualOperator() {
     // Can handle floats that should  be equal and epislons great than the biggest compared float
 		XCTAssertTrue(1.0.within(0.00000000000001, of: 1.0))
-    
+
 		XCTAssertTrue(1.0.within(2.0, of: 0.1))
 
     // Must treat Infinity as always equal

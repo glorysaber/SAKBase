@@ -17,7 +17,7 @@ extension Array {
 		guard (startIndex..<endIndex).contains(index) else {
 			return nil
 		}
-		
+
 		return self[index]
 	}
 }

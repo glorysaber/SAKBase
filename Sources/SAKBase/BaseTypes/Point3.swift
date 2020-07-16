@@ -27,9 +27,19 @@ public extension Point3 where PointValue: Real {
 }
 
 public extension Point3 {
-	static func +=(left: inout Self, right: Self) {
+	// swiftlint:disable shorthand_operator
+	static func += (left: inout Self, right: Self) {
 		left = left + right
 	}
+
+	static func -= (left: inout Self, right: Self) {
+		left = left - right
+	}
+
+	static func *= (left: inout Self, right: Self) {
+		left = left * right
+	}
+	// swiftlint:enable shorthand_operator
 }
 
 public extension Point3 where PointValue: Real {
@@ -55,8 +65,14 @@ public extension Point3 where PointValue: Real {
 }
 
 public extension Point3 where PointValue: Real {
-	@available(*, deprecated: 0.0.0, message: "Do not use equivalency with Real types as it will not work as expected, please use within comparisons isntead")
-	static func ==(lhs: Self, rhs: Self) -> Bool {
+	@available(*,
+	deprecated: 0.0.0,
+	message:
+	"""
+	Do not use equivalency with Real types as
+	"it will not work as expected, please use within comparisons isntead
+	""")
+	static func == (lhs: Self, rhs: Self) -> Bool {
 		lhs.xCord == rhs.xCord
 			&& lhs.yCord == rhs.yCord
 			&& lhs.zCord == rhs.zCord
@@ -77,7 +93,6 @@ public extension Point3 where PointValue: EquivalentIntegerSize {
 	}
 }
 
-
 public func +<PointType: Point3>(lhs: PointType, rhs: PointType) -> PointType {
 	return PointType(xCord: lhs.xCord + rhs.xCord, yCord: lhs.yCord + rhs.yCord, zCord: lhs.zCord + rhs.zCord)
 }
@@ -90,14 +105,28 @@ public func *<PointType: Point3>(lhs: PointType, rhs: PointType) -> PointType {
 	return PointType(xCord: lhs.xCord * rhs.xCord, yCord: lhs.yCord * rhs.yCord, zCord: lhs.zCord * rhs.zCord)
 }
 
-public func /<PointType: Point3>(lhs: PointType, rhs: PointType) -> PointType
-where PointType.PointValue: BinaryInteger {
-	return PointType(xCord: lhs.xCord / rhs.xCord, yCord: lhs.yCord / rhs.yCord, zCord: lhs.zCord / rhs.zCord)
+public  extension Point3 where PointValue: BinaryInteger {
+	static func / (lhs: Self, rhs: Self) -> Self {
+		return Self(xCord: lhs.xCord / rhs.xCord, yCord: lhs.yCord / rhs.yCord, zCord: lhs.zCord / rhs.zCord)
+	}
+
+	// swiftlint:disable shorthand_operator
+	static func /= (left: inout Self, right: Self) {
+		left = left / right
+	}
+	// swiftlint:enable shorthand_operator
 }
 
-public func /<PointType: Point3>(lhs: PointType, rhs: PointType) -> PointType
-where PointType.PointValue: BinaryFloatingPoint {
-	return PointType(xCord: lhs.xCord / rhs.xCord, yCord: lhs.yCord / rhs.yCord, zCord: lhs.zCord / rhs.zCord)
+public  extension Point3 where PointValue: BinaryFloatingPoint {
+	static func / (lhs: Self, rhs: Self) -> Self {
+		return Self(xCord: lhs.xCord / rhs.xCord, yCord: lhs.yCord / rhs.yCord, zCord: lhs.zCord / rhs.zCord)
+	}
+
+	// swiftlint:disable shorthand_operator
+	static func /= (left: inout Self, right: Self) {
+		left = left / right
+	}
+	// swiftlint:enable shorthand_operator
 }
 
 public extension Point3 where PointValue: Real {
@@ -106,5 +135,3 @@ public extension Point3 where PointValue: Real {
 		return value
 	}
 }
-
-

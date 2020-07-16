@@ -12,10 +12,10 @@ import Foundation
 /// A Swift protocol for a point in some 2 dimensional container
 public protocol Point: Hashable {
 	associatedtype PointValue: SignedNumeric
-	
+
 	var xCord: PointValue { get set }
 	var yCord: PointValue { get set }
-	
+
 	init(xCord: PointValue, yCord: PointValue)
 }
 
@@ -26,9 +26,19 @@ public extension Point where PointValue: Real {
 }
 
 public extension Point {
-	static func +=(left: inout Self, right: Self) {
+	// swiftlint:disable shorthand_operator
+	static func += (left: inout Self, right: Self) {
 		left = left + right
 	}
+
+	static func -= (left: inout Self, right: Self) {
+		left = left - right
+	}
+
+	static func *= (left: inout Self, right: Self) {
+		left = left * right
+	}
+	// swiftlint:enable shorthand_operator
 }
 
 public extension Point where PointValue: Real {
@@ -41,7 +51,7 @@ public extension Point where PointValue: Real {
 		return self.xCord.within(epsilon.xCord, of: point.xCord) &&
 			self.yCord.within(epsilon.yCord, of: point.yCord)
 	}
-	
+
 	/// Returns wether or not the value is within the given episolon of the other value
 	/// - Parameters:
 	///   - epsilon: The max allowed difference between two values
@@ -54,8 +64,14 @@ public extension Point where PointValue: Real {
 }
 
 public extension Point where PointValue: Real {
-	@available(*, deprecated: 0.0.0, message: "Do not use equivalency with Real types as it will not work as expected, please use within comparisons isntead")
-	static func ==(lhs: Self, rhs: Self) -> Bool {
+	@available(*,
+	deprecated: 0.0.0,
+	message:
+	"""
+	Do not use equivalency with Real types as
+	"it will not work as expected, please use within comparisons isntead
+	""")
+	static func == (lhs: Self, rhs: Self) -> Bool {
 		return lhs.xCord == rhs.xCord && lhs.yCord == rhs.yCord
 	}
 }
@@ -74,7 +90,6 @@ public extension Point where PointValue: EquivalentIntegerSize {
 	}
 }
 
-
 public func +<PointType: Point>(lhs: PointType, rhs: PointType) -> PointType {
 	return PointType(xCord: lhs.xCord + rhs.xCord, yCord: lhs.yCord + rhs.yCord)
 }
@@ -87,14 +102,28 @@ public func *<PointType: Point>(lhs: PointType, rhs: PointType) -> PointType {
 	return PointType(xCord: lhs.xCord * rhs.xCord, yCord: lhs.yCord * rhs.yCord)
 }
 
-public func /<PointType: Point>(lhs: PointType, rhs: PointType) -> PointType
-where PointType.PointValue: BinaryInteger {
-	return PointType(xCord: lhs.xCord / rhs.xCord, yCord: lhs.yCord / rhs.yCord)
+public  extension Point where PointValue: BinaryInteger {
+	static func / (lhs: Self, rhs: Self) -> Self {
+		return Self(xCord: lhs.xCord / rhs.xCord, yCord: lhs.yCord / rhs.yCord)
+	}
+
+	// swiftlint:disable shorthand_operator
+	static func /= (left: inout Self, right: Self) {
+		left = left / right
+	}
+	// swiftlint:enable shorthand_operator
 }
 
-public func /<PointType: Point>(lhs: PointType, rhs: PointType) -> PointType
-where PointType.PointValue: BinaryFloatingPoint {
-	return PointType(xCord: lhs.xCord / rhs.xCord, yCord: lhs.yCord / rhs.yCord)
+public  extension Point where PointValue: BinaryFloatingPoint {
+	static func / (lhs: Self, rhs: Self) -> Self {
+		return Self(xCord: lhs.xCord / rhs.xCord, yCord: lhs.yCord / rhs.yCord)
+	}
+
+	// swiftlint:disable shorthand_operator
+	static func /= (left: inout Self, right: Self) {
+		left = left / right
+	}
+	// swiftlint:enable shorthand_operator
 }
 
 public extension Point where PointValue: Real {
@@ -103,5 +132,3 @@ public extension Point where PointValue: Real {
 		return value
 	}
 }
-
-

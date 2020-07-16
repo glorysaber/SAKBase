@@ -23,7 +23,6 @@ class CommandTests: XCTestCase {
 			return true
 		}
 
-
 		XCTAssert(executeExclusiveCommand.execute())
 		XCTAssert(testClass.bool)
 		testClass.bool = false
@@ -46,7 +45,6 @@ class CommandTests: XCTestCase {
 		XCTAssert(executeUndoCommand.getUndo() != nil) // Should be able to get the undo command
 		XCTAssert(executeUndoCommand.undo()) // Should be able to successfully execute the Undo command
 		XCTAssert(!testClass.bool) // The boolean should be back to false
-
 
 		// TEST: Testing the undo functionality after the command has already been uninitialized
 		var uninitialized: Command? = Command(actor: testClass, value: true, exec: {
