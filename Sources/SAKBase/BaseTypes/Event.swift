@@ -38,7 +38,6 @@ public class Event<DataType> {
 	A handler that allows you to manually stop listenning to the event.
 	You do not need to dispose upon deint of the Target.
 	*/
-	@discardableResult
 	public func addHandler(
 		handler: @escaping Handler) -> DisposeContainer {
 		let wrapper = EventHandlerWrapper(handler: handler, event: self)
