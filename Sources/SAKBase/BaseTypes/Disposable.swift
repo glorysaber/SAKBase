@@ -8,8 +8,10 @@
 
 /// Automatically disposes of a event upon deinit
 public class DisposeContainer: Disposable {
+	/// The object that is to have its dispose called upon deinit
 	private weak var toBeDisposed: Disposable?
 
+	/// - Parameter toBeDisposed: The object that is to have its dispose called upon deinit
 	public init(toBeDisposed: Disposable) {
 		self.toBeDisposed = toBeDisposed
 	}
@@ -34,5 +36,7 @@ public class DisposeContainer: Disposable {
 
 /// Lets you dispose of a connected type.
 public protocol Disposable: AnyObject {
+	
+	/// Tells the object to dispose itself
 	func dispose()
 }
