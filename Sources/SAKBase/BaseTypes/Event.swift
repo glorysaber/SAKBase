@@ -59,7 +59,7 @@ private class EventHandlerWrapper<DataType>: Disposable, Identifiable {
 	let id = UUID()
 
 	let handler: Handler
-	let event: Event<DataType>
+	weak var event: Event<DataType>?
 
 	init(handler: @escaping Handler, event: Event<DataType>) {
 		self.handler = handler

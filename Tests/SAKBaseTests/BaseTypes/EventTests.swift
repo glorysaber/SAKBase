@@ -12,6 +12,29 @@ import SAKBase
 class EventTests: XCTestCase {
 
 	weak var eventHandler: Disposable?
+	
+	func test_event_doesdeallocate() {
+		class HandlerSpy {
+			func handle(_ value: Int) {}
+		}
+		
+		weak var weakEvent: Event<Int>?
+		weak var weakHandler: HandlerSpy?
+		
+		do {
+			let event = Event<Int>()
+			weakEvent = event
+			
+			let handler = HandlerSpy()
+			weakHandler = handler
+			
+			_ = event.addHandler(handler: { handler.handle($0) })
+				.removeDisposableFromContainer()
+		}
+	
+		XCTAssertNil(weakEvent)
+		XCTAssertNil(weakHandler)
+	}
 
 	func test_event_doesGetDisposed() {
 
