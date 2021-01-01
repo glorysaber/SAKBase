@@ -11,15 +11,21 @@ import Foundation
 
 /// A Swift protocol for a point in some 2 dimensional container
 public protocol Point: Hashable {
+	/// The type of internal values
 	associatedtype PointValue: SignedNumeric
 
+	/// Assumed to be the X cordinate in a Cartesian pt system
 	var xCord: PointValue { get set }
+	
+	/// Assumed to be the Y cordinate in a Cartesian pt system
 	var yCord: PointValue { get set }
 
+	/// The default initializer taking in any valid value
 	init(xCord: PointValue, yCord: PointValue)
 }
 
 public extension Point where PointValue: Real {
+	/// An additional initializer for supporting Ints without casting
 	init(xCord: Int, yCord: Int) {
 		self.init(xCord: PointValue(xCord), yCord: PointValue(yCord))
 	}
@@ -27,14 +33,18 @@ public extension Point where PointValue: Real {
 
 public extension Point {
 	// swiftlint:disable shorthand_operator
+	
+	/// Adds the left and the right paramaters and assigns the result  to the left paramater
 	static func += (left: inout Self, right: Self) {
 		left = left + right
 	}
 
+	/// Subtracts the right from the left paramater and assigns the result to the left paramater
 	static func -= (left: inout Self, right: Self) {
 		left = left - right
 	}
 
+	/// Multiplies  the left and the right paramaters and assigns the result  to the left paramater
 	static func *= (left: inout Self, right: Self) {
 		left = left * right
 	}
@@ -61,16 +71,15 @@ public extension Point where PointValue: Real {
 		return within(Self.init(xCord: epsilon, yCord: epsilon),
 									of: point)
 	}
-}
-
-public extension Point where PointValue: Real {
+	
 	@available(*,
-	deprecated: 0.0.0,
+	deprecated: 0,
 	message:
 	"""
 	Do not use equivalency with Real types as
-	"it will not work as expected, please use within comparisons isntead
+	it will not work as expected, please use within comparisons instead
 	""")
+	/// Compares the two points with real numbers
 	static func == (lhs: Self, rhs: Self) -> Bool {
 		return lhs.xCord == rhs.xCord && lhs.yCord == rhs.yCord
 	}
