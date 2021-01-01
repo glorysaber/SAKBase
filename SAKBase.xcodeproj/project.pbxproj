@@ -70,6 +70,29 @@
 		CCA0A4F824BE2C40007258BA /* BindingCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingCommandTests.swift; sourceTree = "<group>"; };
 		CCA0A4FA24BE2C6B007258BA /* CommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandTests.swift; sourceTree = "<group>"; };
 		CCA0A4FC24BE438F007258BA /* PointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTests.swift; sourceTree = "<group>"; };
+		CCA2217B259FC236000A0DAA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CCA22186259FC246000A0DAA /* PThread_ReadWriteLock.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PThread_ReadWriteLock.md; sourceTree = "<group>"; };
+		CCA22187259FC246000A0DAA /* GroupOperation.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = GroupOperation.md; sourceTree = "<group>"; };
+		CCA22188259FC246000A0DAA /* Stack.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Stack.md; sourceTree = "<group>"; };
+		CCA22189259FC246000A0DAA /* Disposable.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Disposable.md; sourceTree = "<group>"; };
+		CCA2218A259FC246000A0DAA /* Point.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Point.md; sourceTree = "<group>"; };
+		CCA2218B259FC246000A0DAA /* weakify(_:default:_:).md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "weakify(_:default:_:).md"; sourceTree = "<group>"; };
+		CCA2218C259FC246000A0DAA /* weakify(_:_:).md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "weakify(_:_:).md"; sourceTree = "<group>"; };
+		CCA2218D259FC246000A0DAA /* DisposeContainer.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = DisposeContainer.md; sourceTree = "<group>"; };
+		CCA2218E259FC246000A0DAA /* ProgressReporting.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ProgressReporting.md; sourceTree = "<group>"; };
+		CCA2218F259FC246000A0DAA /* BindingCommandResponder.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = BindingCommandResponder.md; sourceTree = "<group>"; };
+		CCA22190259FC246000A0DAA /* Home.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Home.md; sourceTree = "<group>"; };
+		CCA22191259FC246000A0DAA /* Command.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Command.md; sourceTree = "<group>"; };
+		CCA22192259FC246000A0DAA /* strongify(_:_:).md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "strongify(_:_:).md"; sourceTree = "<group>"; };
+		CCA22193259FC246000A0DAA /* unsafeWeakify(_:_:).md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "unsafeWeakify(_:_:).md"; sourceTree = "<group>"; };
+		CCA22194259FC246000A0DAA /* BindingCommand.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = BindingCommand.md; sourceTree = "<group>"; };
+		CCA22195259FC246000A0DAA /* _Sidebar.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = _Sidebar.md; sourceTree = "<group>"; };
+		CCA22196259FC246000A0DAA /* Event.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Event.md; sourceTree = "<group>"; };
+		CCA22197259FC246000A0DAA /* AsyncOperation.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = AsyncOperation.md; sourceTree = "<group>"; };
+		CCA22198259FC246000A0DAA /* EquivalentIntegerSize.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = EquivalentIntegerSize.md; sourceTree = "<group>"; };
+		CCA22199259FC246000A0DAA /* Point3.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Point3.md; sourceTree = "<group>"; };
+		CCA2219A259FC246000A0DAA /* _Footer.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = _Footer.md; sourceTree = "<group>"; };
+		CCA2219B259FC246000A0DAA /* PThread.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PThread.md; sourceTree = "<group>"; };
 		CCC1C0AA23D6B3550027CD2B /* BindingCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingCommand.swift; sourceTree = "<group>"; };
 		CCC1C0AB23D6B3550027CD2B /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		CCC1C0AD23D6B3550027CD2B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -160,9 +183,40 @@
 			path = Concurrency;
 			sourceTree = "<group>";
 		};
+		CCA22185259FC246000A0DAA /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCA22186259FC246000A0DAA /* PThread_ReadWriteLock.md */,
+				CCA22187259FC246000A0DAA /* GroupOperation.md */,
+				CCA22188259FC246000A0DAA /* Stack.md */,
+				CCA22189259FC246000A0DAA /* Disposable.md */,
+				CCA2218A259FC246000A0DAA /* Point.md */,
+				CCA2218B259FC246000A0DAA /* weakify(_:default:_:).md */,
+				CCA2218C259FC246000A0DAA /* weakify(_:_:).md */,
+				CCA2218D259FC246000A0DAA /* DisposeContainer.md */,
+				CCA2218E259FC246000A0DAA /* ProgressReporting.md */,
+				CCA2218F259FC246000A0DAA /* BindingCommandResponder.md */,
+				CCA22190259FC246000A0DAA /* Home.md */,
+				CCA22191259FC246000A0DAA /* Command.md */,
+				CCA22192259FC246000A0DAA /* strongify(_:_:).md */,
+				CCA22193259FC246000A0DAA /* unsafeWeakify(_:_:).md */,
+				CCA22194259FC246000A0DAA /* BindingCommand.md */,
+				CCA22195259FC246000A0DAA /* _Sidebar.md */,
+				CCA22196259FC246000A0DAA /* Event.md */,
+				CCA22197259FC246000A0DAA /* AsyncOperation.md */,
+				CCA22198259FC246000A0DAA /* EquivalentIntegerSize.md */,
+				CCA22199259FC246000A0DAA /* Point3.md */,
+				CCA2219A259FC246000A0DAA /* _Footer.md */,
+				CCA2219B259FC246000A0DAA /* PThread.md */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
 		CCC1C09323D6B3320027CD2B = {
 			isa = PBXGroup;
 			children = (
+				CCA2217B259FC236000A0DAA /* README.md */,
+				CCA22185259FC246000A0DAA /* Documentation */,
 				CCC1C0A823D6B3550027CD2B /* Sources */,
 				CCE7642324AA7802002F2863 /* Tests */,
 				CCC1C09E23D6B3320027CD2B /* Products */,
@@ -471,7 +525,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -485,7 +539,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -501,7 +555,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -515,7 +569,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
