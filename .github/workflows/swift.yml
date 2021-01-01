@@ -7,12 +7,22 @@ on:
 
 jobs:
   build:
-
-    runs-on: macos-latest
+    runs-on: ${{matrix.platform}}
+    strategy:
+      matrix:
+        platform: [iOS-latest, tvOS-latest, macOS-latest, watchOS-latest]
 
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: swift build -v -color-diagnostics
-    - name: Run tests
-      run: swift test -v
+      run: swift build -v
+      
+  run-tests:
+    runs-on:  ${{matrix.platform}}
+    strategy:
+      matrix:
+        platform: [iOS-latest, tvOS-latest, macOS-latest, watchOS-latest]
+    
+    steps:
+      - name: Run tests
+        run: swift test -v
