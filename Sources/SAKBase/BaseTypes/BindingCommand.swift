@@ -14,6 +14,11 @@ Used for a command responder chain in order to allow responsibility to be passed
 but retain a strong reference to all captured types.
 */
 public protocol BindingCommandResponder {
+	
+	/// Called on the next responder in the chain.
+	/// - Parameters:
+	///   - command: The command to be run by the responder or to be passed to another responder in the chain
+	///   - sender: The sender of the command
 	func recieve(_ command: BindingCommand, sender: Any?)
 }
 
@@ -31,8 +36,11 @@ public final class BindingCommand {
 
 	/// The command that will undo the execCommand
 	private let undoCommand: (() -> Bool)?
-
+	
 	/// Initializes the Command with an executable closure and a closure to undo it.
+	/// - Parameters:
+	///   - exec: The closure to be used for execution
+	///   - undo: The closue to be used to undo the state changes caused by the exec closure
 	public init(exec: @escaping () -> Bool, undo: (() -> Bool)? = nil ) {
 		execCommand = exec
 		undoCommand = undo
