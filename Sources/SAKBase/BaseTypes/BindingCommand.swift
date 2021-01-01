@@ -9,49 +9,58 @@
 import Foundation
 
 /**
- Abstract:
- Used for a command responder chain in order to allow responsibility to be passed but retain a strong reference to all captured types.
- */
+Abstract:
+Used for a command responder chain in order to allow responsibility to be passed
+but retain a strong reference to all captured types.
+*/
 public protocol BindingCommandResponder {
-    func recieve(_ command: BindingCommand, sender: Any?)
+	
+	/// Called on the next responder in the chain.
+	/// - Parameters:
+	///   - command: The command to be run by the responder or to be passed to another responder in the chain
+	///   - sender: The sender of the command
+	func recieve(_ command: BindingCommand, sender: Any?)
 }
 
 /**
- Abstract:
- Is used to give buttons and inputs actions that they will incur. Unlike the Command, this class is static.
- */
-final public class BindingCommand {
-    
-    /// The name of the command
-    public var name: String?
-    
-    /// The command to be executed
-    private let execCommand: () -> Bool
-    
-    /// The command that will undo the execCommand
-    private let undoCommand: (() -> Bool)?
-    
-    /// Initializes the Command with an executable closure and a closure to undo it.
-    public init(exec: @escaping () -> Bool, undo: (() -> Bool)? = nil ) {
-      execCommand = exec
-      undoCommand = undo
-    }
-    
-    /**
-     Executes the command if actor is non-nil.
-     - Returns: a discardable `Bool` describing if the action was successful
-     */
-    @discardableResult
-    public func execute() -> Bool {
-        return execCommand()
-    }
-    
-    /**
-     Does the undo variant of the command if undo is set with the last value set.
-     - Returns: a discardable `Bool` describing if the action was successful
-     */
-    @discardableResult
-    public func undo() -> Bool {
-        return undoCommand?() ?? false
-    }
+Abstract:
+Is used to give buttons and inputs actions that they will incur. Unlike the Command, this class is static.
+*/
+public final class BindingCommand {
+
+	/// The name of the command
+	public var name: String?
+
+	/// The command to be executed
+	private let execCommand: () -> Bool
+
+	/// The command that will undo the execCommand
+	private let undoCommand: (() -> Bool)?
+	
+	/// Initializes the Command with an executable closure and a closure to undo it.
+	/// - Parameters:
+	///   - exec: The closure to be used for execution
+	///   - undo: The closue to be used to undo the state changes caused by the exec closure
+	public init(exec: @escaping () -> Bool, undo: (() -> Bool)? = nil ) {
+		execCommand = exec
+		undoCommand = undo
+	}
+
+	/**
+	Executes the command if actor is non-nil.
+	- Returns: a discardable `Bool` describing if the action was successful
+	*/
+	@discardableResult
+	public func execute() -> Bool {
+		return execCommand()
+	}
+
+	/**
+	Does the undo variant of the command if undo is set with the last value set.
+	- Returns: a discardable `Bool` describing if the action was successful
+	*/
+	@discardableResult
+	public func undo() -> Bool {
+		return undoCommand?() ?? false
+	}
 }

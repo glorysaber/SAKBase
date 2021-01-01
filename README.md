@@ -2,4 +2,7 @@
 
 # SAKBase
 
-A description of this package.
+This is a package with a collection of useful common types, structures, algorythms for my own personal development.
+
+[Documentation](./Documentation/Home.md)
+

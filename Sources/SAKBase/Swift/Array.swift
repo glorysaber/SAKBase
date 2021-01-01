@@ -10,14 +10,14 @@
 import Foundation
 
 extension Array {
-  /// Returns the value if it exists at the given index, otherwise nil.
-  /// - Parameters:
-  ///   - guarded: The index to safely get the value from
-  public subscript(guarded index: Int) -> Element? {
-    guard (startIndex..<endIndex).contains(index) else {
-      return nil
-    }
-    
-    return self[index]
-  }
+	/// Returns the value if it exists at the given index, otherwise nil.
+	/// - Parameters:
+	///   - guarded: The index to safely get the value from
+	public subscript(guarded index: Int) -> Element? {
+		guard (startIndex..<endIndex).contains(index) else {
+			return nil
+		}
+
+		return self[index]
+	}
 }

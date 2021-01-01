@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol ProgressReporting {
-  var progress: Progress { get }
+	var progress: Progress { get }
 }

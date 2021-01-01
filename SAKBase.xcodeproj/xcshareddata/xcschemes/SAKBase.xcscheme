@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CCC1C09C23D6B3320027CD2B"
+               BlueprintIdentifier = "CC90BC0824AA7CD1002CB53F"
                BuildableName = "SAKBase.framework"
                BlueprintName = "SAKBase"
                ReferencedContainer = "container:SAKBase.xcodeproj">
@@ -26,13 +26,24 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CC90BC0824AA7CD1002CB53F"
+            BuildableName = "SAKBase.framework"
+            BlueprintName = "SAKBase"
+            ReferencedContainer = "container:SAKBase.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CCC1C0DE23D6B45E0027CD2B"
+               BlueprintIdentifier = "CC90BC1024AA7CD2002CB53F"
                BuildableName = "SAKBaseTests.xctest"
                BlueprintName = "SAKBaseTests"
                ReferencedContainer = "container:SAKBase.xcodeproj">
@@ -60,7 +71,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CCC1C09C23D6B3320027CD2B"
+            BlueprintIdentifier = "CC90BC0824AA7CD1002CB53F"
             BuildableName = "SAKBase.framework"
             BlueprintName = "SAKBase"
             ReferencedContainer = "container:SAKBase.xcodeproj">
