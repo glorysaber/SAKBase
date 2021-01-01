@@ -15,7 +15,7 @@ import Foundation
 public class Event<DataType> {
 
 	/// The type of the event handlers
-	private typealias EventHandler = EventHandlerWrapper<DataType>
+	fileprivate typealias EventHandler = EventHandlerWrapper<DataType>
 	
 	/// This closure is responseible for handling the raised events data when invoked.
 	public typealias Handler = (DataType) throws -> Void
@@ -47,10 +47,15 @@ public class Event<DataType> {
 	You do not need to dispose upon deint of the Target.
 	*/
 	public func addHandler(
-		handler: @escaping Handler) -> DisposeContainer {
+		handler: @escaping Handler) -> some DisposeContainer {
 		let wrapper = EventHandlerWrapper(handler: handler, event: self)
 		eventHandlers.insert(wrapper)
 		return DisposeContainer(toBeDisposed: wrapper)
+	}
+	
+	/// Removes the given handler
+	fileprivate func remove(handler: EventHandler) {
+		eventHandlers.remove(handler)
 	}
 
 	/// deinit
@@ -94,7 +99,7 @@ private class EventHandlerWrapper<DataType>: Disposable, Identifiable {
 	
 	/// Removes the eventhandler from its event which will allow it to deallocate
 	public func dispose() {
-		event?.eventHandlers.remove(self)
+		event?.remove(handler: self)
 	}
 }
 
