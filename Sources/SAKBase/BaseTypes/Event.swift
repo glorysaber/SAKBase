@@ -14,20 +14,28 @@ import Foundation
 /// If a handle throws an error then it will also be removed silently.
 public class Event<DataType> {
 
-	fileprivate typealias EventHandler = EventHandlerWrapper<DataType>
+	/// The type of the event handlers
+	private typealias EventHandler = EventHandlerWrapper<DataType>
+	
+	/// This closure is responseible for handling the raised events data when invoked.
 	public typealias Handler = (DataType) throws -> Void
+	
+	/// The handlers to be invoked once the event has been raised with a value
+	private var eventHandlers = Set<EventHandler>()
 
-	fileprivate var eventHandlers = Set<EventHandler>()
-
+	/// The count of the current handlers
 	public var handlerCount: Int {
 			eventHandlers.count
 	}
 
+	/// init
 	public init() {}
-
-	public func raise(_ data: DataType) {
+	
+	/// Raises the event causing all events to be called with the data from data. data is called to generate the data once per handler/listener for the event.
+	/// - Parameter data: The data to pass to all events, it has the unique attribute of only being called once per handler.
+	public func raise(_ data: @autoclosure () -> DataType) {
 		for handler in self.eventHandlers {
-			handler.invoke(data)
+			handler.invoke(data())
 		}
 	}
 
@@ -45,6 +53,7 @@ public class Event<DataType> {
 		return DisposeContainer(toBeDisposed: wrapper)
 	}
 
+	/// deinit
 	deinit {
 		for handler in eventHandlers {
 			handler.dispose()
@@ -52,34 +61,56 @@ public class Event<DataType> {
 	}
 }
 
+/// An internal type used to wrap a handler and the event type.
 private class EventHandlerWrapper<DataType>: Disposable, Identifiable {
 
+	/// This closure is responseible for handling the events data when invoked.
 	typealias Handler = (DataType) throws -> Void
 
+	// The id of the EventHandlerWrapper used to remove itself from its event
 	let id = UUID()
 
+	/// The handler for any events that happen
 	let handler: Handler
+		
+	/// The event the wrapper belongs too
 	weak var event: Event<DataType>?
-
+	
+	/// Creates an EventHandlerWrapper with the handler to handle the invocation and the event the wrapper belongs too
+	/// - Parameters:
+	///   - handler: The handler to call when invoked
+	///   - event: The event the EventHandlerWrapper belongs too
 	init(handler: @escaping Handler, event: Event<DataType>) {
 		self.handler = handler
 		self.event = event
 	}
 
+	/// Invokes the handler for stored event type, disposes itself if the handler throws
+	/// - Parameter data: The data to invoke the handler with
 	func invoke(_ data: DataType) {
 		guard (try? handler(data)) != nil else { dispose(); return }
 	}
 
+	
+	/// Removes the eventhandler from its event which will allow it to deallocate
 	public func dispose() {
-		event.eventHandlers.remove(self)
+		event?.eventHandlers.remove(self)
 	}
 }
 
 extension EventHandlerWrapper: Hashable {
+	
+	/// - Parameters:
+	///   - lhs: The left object of the comparator
+	///   - rhs: The object on the right of the comparator
+	/// - Returns: Wether or not the ids of the two objects match
 	static func == (lhs: EventHandlerWrapper<DataType>, rhs: EventHandlerWrapper<DataType>) -> Bool {
 		lhs.id == rhs.id
 	}
 
+	
+	/// Creates a hash using the id
+	/// - Parameter hasher: The haser to hash into
 	func hash(into hasher: inout Hasher) {
 		hasher.combine(id)
 	}
