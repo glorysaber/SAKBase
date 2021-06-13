@@ -36,7 +36,7 @@ public class DisposeContainer: Disposable {
 
 /// Lets you dispose of a connected type.
 public protocol Disposable: AnyObject {
-	
+
 	/// Tells the object to dispose itself
 	func dispose()
 }

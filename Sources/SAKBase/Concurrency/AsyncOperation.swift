@@ -21,30 +21,28 @@ open class AsyncOperation: Operation {
 	var isFinishedInternal: Bool = false
 
 	override open var isFinished: Bool {
+		get {
+			isFinishedInternal
+		}
 		set {
 			willChangeValue(forKey: "isFinished")
 			isFinishedInternal = newValue
 			didChangeValue(forKey: "isFinished")
 			isFinishedEvent.raise(newValue)
 		}
-
-		get {
-			return isFinishedInternal
-		}
 	}
 
 	var isExecutingInternal: Bool = false
 
 	override open var isExecuting: Bool {
+		get {
+			isExecutingInternal
+		}
 		set {
 			willChangeValue(forKey: "isExecuting")
 			isExecutingInternal = newValue
 			didChangeValue(forKey: "isExecuting")
 			isExecutingEvent.raise(newValue)
-		}
-
-		get {
-			return isExecutingInternal
 		}
 	}
 

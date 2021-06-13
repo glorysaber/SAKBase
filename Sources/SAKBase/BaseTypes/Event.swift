@@ -16,10 +16,10 @@ public class Event<DataType> {
 
 	/// The type of the event handlers
 	fileprivate typealias EventHandler = EventHandlerWrapper<DataType>
-	
+
 	/// This closure is responseible for handling the raised events data when invoked.
 	public typealias Handler = (DataType) throws -> Void
-	
+
 	/// The handlers to be invoked once the event has been raised with a value
 	private var eventHandlers = Set<EventHandler>()
 
@@ -30,9 +30,11 @@ public class Event<DataType> {
 
 	/// init
 	public init() {}
-	
-	/// Raises the event causing all events to be called with the data from data. data is called to generate the data once per handler/listener for the event.
-	/// - Parameter data: The data to pass to all events, it has the unique attribute of only being called once per handler.
+
+	/// Raises the event causing all events to be called with the data from data.
+	/// data is called to generate the data once per handler/listener for the event.
+	/// - Parameter data: The data to pass to all events,
+	/// it has the unique attribute of only being called once per handler.
 	public func raise(_ data: @autoclosure () -> DataType) {
 		for handler in self.eventHandlers {
 			handler.invoke(data())
@@ -52,7 +54,7 @@ public class Event<DataType> {
 		eventHandlers.insert(wrapper)
 		return DisposeContainer(toBeDisposed: wrapper)
 	}
-	
+
 	/// Removes the given handler
 	fileprivate func remove(handler: EventHandler) {
 		eventHandlers.remove(handler)
@@ -77,10 +79,10 @@ private class EventHandlerWrapper<DataType>: Disposable, Identifiable {
 
 	/// The handler for any events that happen
 	let handler: Handler
-		
+
 	/// The event the wrapper belongs too
 	weak var event: Event<DataType>?
-	
+
 	/// Creates an EventHandlerWrapper with the handler to handle the invocation and the event the wrapper belongs too
 	/// - Parameters:
 	///   - handler: The handler to call when invoked
@@ -96,7 +98,6 @@ private class EventHandlerWrapper<DataType>: Disposable, Identifiable {
 		guard (try? handler(data)) != nil else { dispose(); return }
 	}
 
-	
 	/// Removes the eventhandler from its event which will allow it to deallocate
 	public func dispose() {
 		event?.remove(handler: self)
@@ -104,7 +105,7 @@ private class EventHandlerWrapper<DataType>: Disposable, Identifiable {
 }
 
 extension EventHandlerWrapper: Hashable {
-	
+
 	/// - Parameters:
 	///   - lhs: The left object of the comparator
 	///   - rhs: The object on the right of the comparator
@@ -113,7 +114,6 @@ extension EventHandlerWrapper: Hashable {
 		lhs.id == rhs.id
 	}
 
-	
 	/// Creates a hash using the id
 	/// - Parameter hasher: The haser to hash into
 	func hash(into hasher: inout Hasher) {

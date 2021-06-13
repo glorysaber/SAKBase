@@ -60,7 +60,7 @@ class Concurrency: XCTestCase {
       let firstAccess = XCTestExpectation(description: "Dual Access 1")
       let secondAccess = XCTestExpectation(description: "Dual Access 1")
 
-      //Operation
+      // Operation
 
       DispatchQueue.main.async(group: nil, qos: .userInteractive, flags: []) { [lockedValue] in
         for num in rangeToLoop {
