@@ -53,7 +53,7 @@ class Concurrency: XCTestCase {
   }
 
   func testParrallelRead() {
-    let rangeToLoop = 0...100000
+    let rangeToLoop = 0...1000
     let lockedValue = Lock(value: Array(rangeToLoop))
 
     self.measure {
@@ -62,14 +62,14 @@ class Concurrency: XCTestCase {
 
       // Operation
 
-      DispatchQueue.main.async(group: nil, qos: .userInteractive, flags: []) { [lockedValue] in
+			DispatchQueue(label: "1").async(qos: .userInteractive) { [lockedValue] in
         for num in rangeToLoop {
           XCTAssert(num == lockedValue.value[num])
         }
         firstAccess.fulfill()
       }
 
-      DispatchQueue.main.async(group: nil, qos: .userInteractive, flags: []) {[lockedValue] in
+			DispatchQueue(label: "2").async(qos: .userInteractive) {[lockedValue] in
         for num in (rangeToLoop).reversed() {
           XCTAssert(num == lockedValue.value[num])
         }
@@ -80,7 +80,7 @@ class Concurrency: XCTestCase {
         XCTAssert(num == lockedValue.value[num])
       }
 
-      wait(for: [firstAccess, secondAccess], timeout: 10.0)
+      wait(for: [firstAccess, secondAccess], timeout: 5.0)
 
     }
   }

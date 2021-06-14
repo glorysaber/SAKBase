@@ -122,8 +122,8 @@ extension MutableArray: CustomDebugStringConvertible {
 	}
 }
 
-// MARK: - Private helpers
-private extension MutableArray {
+// MARK: - Uniqueness
+public extension MutableArray {
 	/// Call this function to make sure we are uniquely referenced before making mutating changes.
 	mutating func makeSureIsUniquelyReferenced() {
 		guard isEmpty == false else { return }
