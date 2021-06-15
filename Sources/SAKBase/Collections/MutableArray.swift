@@ -11,16 +11,20 @@ import Foundation
 /// Acts like an array but allows structs to be mutable if declared in a variable with COW semantics.
 public struct MutableArray<Element> {
 	public typealias Container = MutableValueReference<Element>
-	private var mutableArray = MutableContainerArray<Element>()
+
+	@usableFromInline
+	internal var mutableArray = MutableContainerArray<Element>()
 
 	public init() {
 		mutableArray = []
 	}
 
+	@inlinable
 	public init<S: Sequence>(_ sequence: S) where S.Element == Element {
 		mutableArray = MutableContainerArray(sequence)
 	}
 
+	@inlinable
 	public mutating func modifying<T>(
 		with modifyingClosure: (inout MutableContainerArray<Element>) throws -> T
 	) rethrows -> T {
@@ -32,6 +36,7 @@ public struct MutableArray<Element> {
 		return try modifyingClosure(&mutableArray)
 	}
 
+	@inlinable
 	public mutating func unsafelyModifyingSharedSource<T>(
 		with modifyingClosure: (inout MutableContainerArray<Element>
 		) throws -> T) rethrows -> T {
@@ -47,26 +52,32 @@ extension MutableArray: Collection {
 
 	public typealias Index = Int
 
+	@inlinable
 	public var isEmpty: Bool {
 		mutableArray.isEmpty
 	}
 
+	@inlinable
 	public var count: Int {
 		mutableArray.count
 	}
 
+	@inlinable
 	public var first: Element? {
 		mutableArray.first?.wrappedValue
 	}
 
+	@inlinable
 	public var startIndex: Index {
 		mutableArray.startIndex
 	}
 
+	@inlinable
 	public var endIndex: Index {
 		mutableArray.endIndex
 	}
 
+	@inlinable
 	public subscript(_ position: Index) -> Element {
 		get {
 			mutableArray[position].wrappedValue
@@ -77,6 +88,7 @@ extension MutableArray: Collection {
 		}
 	}
 
+	@inlinable
 	public func index(after index: Index) -> Int {
 		mutableArray.index(after: index)
 	}
@@ -89,18 +101,21 @@ extension MutableArray: Sequence {}
 extension MutableArray: ExpressibleByArrayLiteral {
 	public typealias ArrayLiteralElement = Element
 
+	@inlinable
 	public init(arrayLiteral elements: ArrayLiteralElement...) {
 		mutableArray = MutableContainerArray(elements.map { Container($0) })
 	}
 }
 
 extension MutableArray: BidirectionalCollection {
+	@inlinable
 	public func index(before index: Int) -> Int {
 		mutableArray.index(before: index)
 	}
 }
 
 extension MutableArray: RangeReplaceableCollection {
+	@inlinable
 	public mutating func replaceSubrange<C: Collection>(
 		_ subrange: Range<Int>,
 		with newElements: C
@@ -111,12 +126,14 @@ extension MutableArray: RangeReplaceableCollection {
 }
 
 extension MutableArray: CustomStringConvertible where Element: CustomStringConvertible {
+	@inlinable
 	public var description: String {
 		"[\(map(\.description).joined(separator: ", "))]"
 	}
 }
 
 extension MutableArray: CustomDebugStringConvertible {
+	@inlinable
 	public var debugDescription: String {
 		"\(Self.self)(\(mutableArray))"
 	}
@@ -125,6 +142,7 @@ extension MutableArray: CustomDebugStringConvertible {
 // MARK: - Uniqueness
 public extension MutableArray {
 	/// Call this function to make sure we are uniquely referenced before making mutating changes.
+	@inlinable
 	mutating func makeSureIsUniquelyReferenced() {
 		guard isEmpty == false else { return }
 

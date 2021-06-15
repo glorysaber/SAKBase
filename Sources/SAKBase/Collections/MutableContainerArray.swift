@@ -11,22 +11,27 @@ import Foundation
 public final class MutableContainerArray<ElementContained> {
 	public typealias Container = MutableValueReference<ElementContained>
 
-	private var internalArray: [Container]
+	@usableFromInline
+	internal var internalArray: ContiguousArray<Container>
 
+	@inlinable
 	public required init() {
 		internalArray = []
 	}
 
+	@inlinable
 	public required init<S: Sequence>(_ sequence: S) where S.Element == Container {
-		internalArray = sequence.map(\.deepCopy)
+		internalArray = ContiguousArray(sequence.map(\.deepCopy))
 	}
 
+	@inlinable
 	public required init<S: Sequence>(_ sequence: S) where S.Element == ElementContained {
-		internalArray = sequence.map { Container($0) }
+		internalArray = ContiguousArray(sequence.map(Container.init))
 	}
 }
 
 extension MutableContainerArray: Copyable {
+	@inlinable
 	public var deepCopy: Self {
 		Self(internalArray.map(\.deepCopy))
 	}
@@ -40,26 +45,32 @@ extension MutableContainerArray: Collection {
 
 	public typealias Index = Int
 
+	@inlinable
 	public var isEmpty: Bool {
 		internalArray.isEmpty
 	}
 
+	@inlinable
 	public var count: Int {
 		internalArray.count
 	}
 
+	@inlinable
 	public var first: Element? {
 		internalArray.first
 	}
 
+	@inlinable
 	public var startIndex: Index {
 		internalArray.startIndex
 	}
 
+	@inlinable
 	public var endIndex: Index {
 		internalArray.endIndex
 	}
 
+	@inlinable
 	public subscript(_ position: Index) -> Element {
 		get {
 			internalArray[position]
@@ -69,6 +80,7 @@ extension MutableContainerArray: Collection {
 		}
 	}
 
+	@inlinable
 	public subscript(_ position: Index) -> ElementContained {
 		get {
 			internalArray[position].wrappedValue
@@ -78,6 +90,7 @@ extension MutableContainerArray: Collection {
 		}
 	}
 
+	@inlinable
 	public func index(after index: Index) -> Int {
 		internalArray.index(after: index)
 	}
@@ -88,20 +101,23 @@ extension MutableContainerArray: Collection {
 extension MutableContainerArray: ExpressibleByArrayLiteral {
 	public typealias ArrayLiteralElement = Element
 
+	@inlinable
 	public convenience init(arrayLiteral elements: ArrayLiteralElement...) {
 		// Swift gets confused if we try to call the Sequence initializer.
 		self.init()
-		self.internalArray = elements
+		self.internalArray = ContiguousArray(elements)
 	}
 
+	@inlinable
 	public convenience init(arrayLiteral elements: ElementContained...) {
 		// Swift gets confused if we try to call the Sequence initializer.
 		self.init()
-		self.internalArray = elements.map { Container($0) }
+		self.internalArray = ContiguousArray(elements.map { Container($0) })
 	}
 }
 
 extension MutableContainerArray: BidirectionalCollection {
+	@inlinable
 	public func index(before index: Int) -> Int {
 		internalArray.index(before: index)
 	}
@@ -112,10 +128,12 @@ extension MutableContainerArray: RandomAccessCollection {}
 extension MutableContainerArray: Sequence {}
 
 extension MutableContainerArray: RangeReplaceableCollection {
+	@inlinable
 	public func replaceSubrange<C: Collection>(_ subrange: Range<Int>, with newElements: C) where Element == C.Element {
 		internalArray.replaceSubrange(subrange, with: newElements)
 	}
 
+	@inlinable
 	public func replaceSubrange<C: Collection>(
 		_ subrange: Range<Int>,
 		with newElements: C
@@ -140,12 +158,14 @@ extension MutableContainerArray: RangeReplaceableCollection {
 }
 
 extension MutableContainerArray: CustomStringConvertible where ElementContained: CustomStringConvertible {
+	@inlinable
 	public var description: String {
 		"[\(map(\.description).joined(separator: ", "))]"
 	}
 }
 
 extension MutableContainerArray: CustomDebugStringConvertible {
+	@inlinable
 	public var debugDescription: String {
 		"\(Self.self)(\(internalArray))"
 	}

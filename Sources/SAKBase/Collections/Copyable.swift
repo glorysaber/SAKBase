@@ -14,6 +14,7 @@ public protocol Copyable {
 }
 
 extension MutableValueReference: Copyable {
+	@inlinable
 	public var deepCopy: MutableValueReference<Element> {
 		MutableValueReference(wrappedValue)
 	}

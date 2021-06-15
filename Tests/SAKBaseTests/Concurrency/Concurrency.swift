@@ -63,18 +63,18 @@ class Concurrency: XCTestCase {
       // Operation
 
 			DispatchQueue(label: "1").async(qos: .userInteractive) { [lockedValue] in
-        for num in rangeToLoop {
-          XCTAssert(num == lockedValue.value[num])
-        }
-        firstAccess.fulfill()
-      }
+				for num in rangeToLoop {
+					XCTAssert(num == lockedValue.value[num])
+				}
+				firstAccess.fulfill()
+			}
 
 			DispatchQueue(label: "2").async(qos: .userInteractive) {[lockedValue] in
-        for num in (rangeToLoop).reversed() {
-          XCTAssert(num == lockedValue.value[num])
-        }
-        secondAccess.fulfill()
-      }
+				for num in (rangeToLoop).reversed() {
+					XCTAssert(num == lockedValue.value[num])
+				}
+				secondAccess.fulfill()
+			}
 
       for num in (rangeToLoop).reversed() {
         XCTAssert(num == lockedValue.value[num])
