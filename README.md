@@ -2,7 +2,7 @@
 
 # SAKBase
 
-This is a package with a collection of useful common types, structures, algorythms for my own personal development.
+This is a package with a collection of useful common types, structures, algorithms for my own personal development.
 
 [Documentation](./Documentation/Home.md)
 
