@@ -53,34 +53,34 @@ class Concurrency: XCTestCase {
   }
 
   func testParrallelRead() {
-    let rangeToLoop = 0...100000
+    let rangeToLoop = 0...1000
     let lockedValue = Lock(value: Array(rangeToLoop))
 
     self.measure {
       let firstAccess = XCTestExpectation(description: "Dual Access 1")
       let secondAccess = XCTestExpectation(description: "Dual Access 1")
 
-      //Operation
+      // Operation
 
-      DispatchQueue.main.async(group: nil, qos: .userInteractive, flags: []) { [lockedValue] in
-        for num in rangeToLoop {
-          XCTAssert(num == lockedValue.value[num])
-        }
-        firstAccess.fulfill()
-      }
+			DispatchQueue(label: "1").async(qos: .userInteractive) { [lockedValue] in
+				for num in rangeToLoop {
+					XCTAssert(num == lockedValue.value[num])
+				}
+				firstAccess.fulfill()
+			}
 
-      DispatchQueue.main.async(group: nil, qos: .userInteractive, flags: []) {[lockedValue] in
-        for num in (rangeToLoop).reversed() {
-          XCTAssert(num == lockedValue.value[num])
-        }
-        secondAccess.fulfill()
-      }
+			DispatchQueue(label: "2").async(qos: .userInteractive) {[lockedValue] in
+				for num in (rangeToLoop).reversed() {
+					XCTAssert(num == lockedValue.value[num])
+				}
+				secondAccess.fulfill()
+			}
 
       for num in (rangeToLoop).reversed() {
         XCTAssert(num == lockedValue.value[num])
       }
 
-      wait(for: [firstAccess, secondAccess], timeout: 10.0)
+      wait(for: [firstAccess, secondAccess], timeout: 5.0)
 
     }
   }

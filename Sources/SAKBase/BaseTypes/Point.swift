@@ -16,7 +16,7 @@ public protocol Point: Hashable {
 
 	/// Assumed to be the X cordinate in a Cartesian pt system
 	var xCord: PointValue { get set }
-	
+
 	/// Assumed to be the Y cordinate in a Cartesian pt system
 	var yCord: PointValue { get set }
 
@@ -33,7 +33,7 @@ public extension Point where PointValue: Real {
 
 public extension Point {
 	// swiftlint:disable shorthand_operator
-	
+
 	/// Adds the left and the right paramaters and assigns the result  to the left paramater
 	static func += (left: inout Self, right: Self) {
 		left = left + right
@@ -71,7 +71,7 @@ public extension Point where PointValue: Real {
 		return within(Self.init(xCord: epsilon, yCord: epsilon),
 									of: point)
 	}
-	
+
 	@available(*,
 	deprecated: 0,
 	message:
