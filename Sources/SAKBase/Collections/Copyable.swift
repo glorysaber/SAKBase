@@ -19,3 +19,12 @@ extension MutableValueReference: Copyable {
 		MutableValueReference(wrappedValue)
 	}
 }
+
+extension MutableArray: Copyable {
+	@inlinable
+	public var deepCopy: Self {
+		var newCopy = self
+		newCopy.makeSureIsUniquelyReferenced()
+		return newCopy
+	}
+}

@@ -9,6 +9,7 @@
 import Foundation
 
 /// Acts like an array but allows structs to be mutable if declared in a variable with COW semantics.
+/// Not Thread Safe. Call makeSureIsUniquelyReferenced for every thread.
 public struct MutableArray<Element> {
 	public typealias Container = MutableValueReference<Element>
 
@@ -25,6 +26,7 @@ public struct MutableArray<Element> {
 	}
 
 	@inlinable
+  /// Gives a reference to the underlying array, allows you to modify it without incuring a copy-on-write response.
 	public mutating func modifying<T>(
 		with modifyingClosure: (inout MutableContainerArray<Element>) throws -> T
 	) rethrows -> T {
@@ -48,9 +50,13 @@ public struct MutableArray<Element> {
 // MARK: Collection
 extension MutableArray: Collection {
 
-	public typealias Iterator = IndexingIterator<Self>
+	public typealias Iterator = MutableArrayIterator<Element>
 
 	public typealias Index = Int
+
+	public func makeIterator() -> Iterator {
+		Iterator(mutableArray: self)
+	}
 
 	@inlinable
 	public var isEmpty: Bool {

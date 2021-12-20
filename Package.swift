@@ -6,9 +6,9 @@ import PackageDescription
 let package = Package(
 	name: "SAKBase",
 	platforms: [.macOS(.v11),
-							.iOS(.v14),
-							.tvOS(.v14),
-							.watchOS(.v7)
+                .iOS(.v14),
+                .tvOS(.v14),
+                .watchOS(.v7)
 	],
 	products: [
 		// Products define the executables and libraries produced by a package, and make them visible to other packages.
