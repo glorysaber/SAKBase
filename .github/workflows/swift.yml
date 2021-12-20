@@ -17,13 +17,15 @@ jobs:
       uses: shimataro/ssh-key-action@v2.3.1
       with:
        # SSH private key
-       key: ${{ secret.GACTION_ID_ED25519 }}
+       key: ${{ secrets.GACTION_ID_ED25519 }}
         # SSH key file name (default: id_rsa)
        name: id_ed25519
+       known_hosts: ${{ secrets.KNOWNHOSTS }}
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2.3.1
       with:
-       key: ${{ secret.GACTION_ID_RSA }}
+       key: ${{ secrets.GACTION_ID_RSA }}
+       known_hosts: ${{ secrets.KNOWNHOSTS }}
     - name: Build
       run: swift build -v
     - name: Run tests
